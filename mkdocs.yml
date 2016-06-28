@@ -1,0 +1,5 @@
+﻿site_name: VSCodeExtensions Docs
+repo_url: 
+theme: readthedocs
+pages:
+- Home: index.md

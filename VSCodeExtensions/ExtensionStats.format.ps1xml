@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+    <ViewDefinitions>
+        <View>
+            <Name>ExtensionStatsView</Name>
+            <ViewSelectedBy>
+                <TypeName>VSCodeExtensions.ExtensionStats</TypeName>
+            </ViewSelectedBy>
+            <ListControl>
+                <ListEntries>
+                    <ListEntry>
+                        <ListItems>
+                            <ListItem>  
+                                <Label>Extension Name</Label>
+                                <PropertyName>DisplayName</PropertyName>
+                            </ListItem>
+                            <ListItem>  
+                                <Label>Publisher Name</Label>
+                                <PropertyName>PublisherName</PropertyName>
+                            </ListItem>
+                            <ListItem>  
+                                <Label>Install Count</Label>
+                                <PropertyName>InstallCount</PropertyName>
+                            </ListItem>
+                            <ListItem>
+                                <Label>Average Rating</Label>
+                                <PropertyName>AverageRating</PropertyName>
+                            </ListItem>
+                            <ListItem>
+                                <Label>Rating Count</Label>
+                                <PropertyName>ratingcount</PropertyName>
+                            </ListItem>
+                            <ListItem>  
+                                <Label>Trending Daily</Label>
+                                <PropertyName>trendingdaily</PropertyName>
+                            </ListItem>
+                            <ListItem>  
+                                <Label>Trending Weekly</Label>
+                                <PropertyName>trendingweekly</PropertyName>
+                            </ListItem>
+                            <ListItem>  
+                                <Label>Trending Monthly</Label>
+                                <PropertyName>trendingmonthly</PropertyName>
+                            </ListItem>
+                        </ListItems>
+                    </ListEntry>
+                </ListEntries>
+            </ListControl>
+        </View>
+    </ViewDefinitions>
+</Configuration>
