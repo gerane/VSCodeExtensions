@@ -1,5 +1,14 @@
 ﻿site_name: VSCodeExtensions Docs
-repo_url: 
+repo_url: https://github.com/gerane/VSCodeExtensions
 theme: readthedocs
 pages:
 - Home: index.md
+- Getting Started: Setup/Getting-Started.md
+- Commands:
+    - Install-VSCodeExtension Help: Commands/Install-VSCodeExtension.md    
+    - Uninstall-VSCodeExtension Help: Commands/Uninstall-VSCodeExtension.md
+    - Update-VSCodeExtension Help: Commands/Update-VSCodeExtension.md
+    - Get-VSCodeExtension Help: Commands/Get-VSCodeExtension.md
+    - Find-VSCodeExtension Help: Commands/Find-VSCodeExtension.md
+    - Get-VSCodeExtensionStats Help: Commands/Get-VSCodeExtensionStats.md
+    - Get-VSCodePublisherStats Help: Commands/Get-VSCodePublisherStats.md

@@ -33,16 +33,28 @@ function Install-VSCodeExtension
         $Null = $PSBoundParameters.Remove('Confirm')
 
         $Extensions = Find-VSCodeExtension @PSBoundParameters
-        $InstalledExtensions = Get-VSCodeExtension $Insiders
-        $ExtensionGroups = $InstalledExtensions | Group-Object -Property 'FullName'      
+
+        if ($Insiders)
+        {
+            $InstalledExtensions = Get-VSCodeExtension -Insiders
+            $VSCodeInstallation = Get-VSCodeInstallation -Insiders                        
+        }
+        else
+        {
+            $InstalledExtensions = Get-VSCodeExtension
+            $VSCodeInstallation = Get-VSCodeInstallation
+            
+            if ([version]$VSCodeInstallation.DisplayVersion -lt [version]'1.2.0')
+            {
+                Throw "VSCode Version 1.2.0 or above is required `nCurrent Version: $($VSCodeInstallation.DisplayVersion)"
+            }
+        }        
 
         if ($Extensions)
         {
             foreach ($Extension in $Extensions)
             {
-                $InstalledVersion = $ExtensionGroups | Where-Object { $_.Name -eq $Extension.Name } | Select-Object -ExpandProperty Group | Sort-Object -Descending -Property Version | Select-Object -First 1 
-
-                if ($InstalledExtensions.FullName -contains $Extension.FullName -AND $InstalledVersion.Version -ge $Extension.Version )
+                if ($InstalledExtensions.FullName -contains $Extension.FullName)
                 {
                     Write-Verbose -Message "Extension $($Extension.FullName) is already Installed"
                 }
@@ -52,23 +64,21 @@ function Install-VSCodeExtension
                     
                     if ($PSCmdlet.ShouldProcess($($Extension.FullName), 'Install Extension'))
                     {
-                        Try
+                        if ($Insiders)
                         {
-                            Write-Debug -Message "Downloading the VSIX Package"                                
-                            Get-VSCodeVsix -Extension $Extension
+                            $CommandLine = "/c `"$($VSCodeInstallation.InstallLocation)bin\code-insiders.cmd`" --install-extension $($Extension.FullName)"
+                            Start-Process -FilePath "cmd" -ArgumentList $CommandLine -Wait -WindowStyle Hidden
+                            Start-Sleep -Seconds 1
 
-                            Write-Debug -Message "Expanding the VSIX Archive"
-                            Expand-VSCodeVsix -Extension $Extension 
-
-                            Write-Debug -Message "Installing the VSIX to Extension Directory"
-                            Install-VSCodeVsix -Extension $Extension $Insiders
-
-                            Write-Debug -Message "Gathering Installed Extensions"
-                            $InstalledExtensions = Get-VSCodeExtension $Insiders
-                        }                          
-                        catch
+                            $InstalledExtensions = Get-VSCodeExtension -Insiders
+                        }
+                        else
                         {
-                            Throw
+                            $CommandLine = "/c `"$($VSCodeInstallation.InstallLocation)bin\code.cmd`" --install-extension $($Extension.FullName)"
+                            Start-Process -FilePath "cmd" -ArgumentList $CommandLine -Wait -WindowStyle Hidden
+                            Start-Sleep -Seconds 1
+
+                            $InstalledExtensions = Get-VSCodeExtension
                         }
 
                         if ($InstalledExtensions.FullName -contains $Extension.FullName)

@@ -1,6 +1,3 @@
-﻿[![Build status](https://ci.appveyor.com/api/projects/status/aovgv1lycoj6ius8/branch/master?svg=true)](https://ci.appveyor.com/project/gerane/vscodeextensions/branch/master)
-[![Documentation Status](https://readthedocs.org/projects/posh-teamviewer/badge/?version=latest)](http://posh-teamviewer.readthedocs.io/en/latest/?badge=latest)
-
 # VSCodeExtensions Module
 
 This module lets you Manage your VSCode Extensions for Stable and Insider Versions of Code. It also gives you the ability to get statistics for Extensions and Publishers.
@@ -43,5 +40,3 @@ PS> Install-Module -Name VSCodeExtensions
 ## Notes
 
 * [Ravikanth Chaganti](https://twitter.com/ravikanth) started this idea with his [DSCResources](https://github.com/rchaganti/DSCResources/tree/master/vscode)
-
-
