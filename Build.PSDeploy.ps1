@@ -1,8 +1,8 @@
 ﻿Deploy VSCodeExtensions {
     
     By PlatyPS {
-        FromSource "VSCodeExtensions\docs\Commands"
-        To "VSCodeExtensions\VSCodeExtensions\en-US"
+        FromSource "$BHProjectPath\docs\Commands"
+        To "$BHProjectPath\VSCodeExtensions\en-US"
         Tagged Help
         WithOptions @{
             Force = $true

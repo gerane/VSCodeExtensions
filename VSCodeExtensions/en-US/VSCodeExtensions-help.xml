@@ -1,0 +1,1139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<helpItems schema="maml">
+
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Find-VSCodeExtension</command:name>
+<command:verb>Find</command:verb>
+<command:noun>VSCodeExtension</command:noun>
+<maml:description><maml:para>Find available extensions on the VSCode Extension Gallery.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>Find available extensions with or without Wildcards on the VSCode Extension Gallery.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Find-VSCodeExtension</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>DisplayName</maml:name>
+<maml:Description><maml:para>The Extensions Display Name to be Installed.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
+<maml:Description><maml:para>Allows the use of WildCards
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+<command:syntaxItem><maml:name>Find-VSCodeExtension</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>ExtensionName</maml:name>
+<maml:Description><maml:para>The Extensions Name to be Installed
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
+<maml:Description><maml:para>Allows the use of WildCards
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+<command:syntaxItem><maml:name>Find-VSCodeExtension</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>FullName</maml:name>
+<maml:Description><maml:para>Full Name of extension including Publisher's Name. PublisherName.ExtensionName
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
+<maml:Description><maml:para>Allows the use of WildCards
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>DisplayName</maml:name>
+<maml:Description><maml:para>The Extensions Display Name to be Installed.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>ExtensionName</maml:name>
+<maml:Description><maml:para>The Extensions Name to be Installed
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>FullName</maml:name>
+<maml:Description><maml:para>Full Name of extension including Publisher's Name. PublisherName.ExtensionName
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
+<maml:Description><maml:para>Allows the use of WildCards
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes><command:inputType><dev:type><maml:name>System.String[]</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:inputType>
+</command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>System.Management.Automation.PSObject</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1</maml:title>
+<dev:code>PS C:\&gt; Find-VSCodeExtension -DisplayName 'Flatland Monokai Theme'</dev:code>
+<dev:remarks><maml:para>This example uses the Display Name to find the Extension.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 2</maml:title>
+<dev:code>PS C:\&gt; Find-VSCodeExtension -ExtensionName 'Theme-FlatlandMonokai'</dev:code>
+<dev:remarks><maml:para>This example uses the Extension Name to find the Extension.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 3</maml:title>
+<dev:code>PS C:\&gt; Find-VSCodeExtension -FullName 'gerane.Theme-FlatlandMonokai'</dev:code>
+<dev:remarks><maml:para>This example uses the Full Name to find the Extension. The Full Name is the Publisher Name and Extension Name combined with a dot.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 4</maml:title>
+<dev:code>PS C:\&gt; Find-VSCodeExtension -FullName 'gerane.*' -WildCard</dev:code>
+<dev:remarks><maml:para>This example finds all Extensions by the Publisher gerane since it is using a Wildcard.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks></command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Get-VSCodeExtension</command:name>
+<command:verb>Get</command:verb>
+<command:noun>VSCodeExtension</command:noun>
+<maml:description><maml:para>Get Installed VSCode Extensions.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>Get Installed Extensions for Stable or Release Versions of VSCode.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Get-VSCodeExtension</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none"><maml:name>Insiders</maml:name>
+<maml:Description><maml:para>Switch to Target Insiders version of Code
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none"><maml:name>Insiders</maml:name>
+<maml:Description><maml:para>Switch to Target Insiders version of Code
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes><command:inputType><dev:type><maml:name>None</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:inputType>
+</command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>System.Management.Automation.PSObject</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1</maml:title>
+<dev:code>PS C:\&gt; Get-VSCodeExtension
+
+FullName      : ms-vscode.PowerShell
+ExtensionName : PowerShell
+DisplayName   : PowerShell
+Version       : 0.6.1
+ExtensionPath : C:\Users\i2871rbp\.vscode\extensions\ms-vscode.PowerShell-0.6.1
+
+FullName      : ms-vscode.Theme-MaterialKit
+ExtensionName : Theme-MaterialKit
+DisplayName   : Material Theme Kit
+Version       : 0.1.0
+ExtensionPath : C:\Users\i2871rbp\.vscode\extensions\ms-vscode.Theme-MaterialKit
+
+FullName      : ms-vscode.Theme-PredawnKit
+ExtensionName : Theme-PredawnKit
+DisplayName   : Predawn Theme Kit
+Version       : 0.1.0
+ExtensionPath : C:\Users\i2871rbp\.vscode\extensions\ms-vscode.Theme-PredawnKit
+
+FullName      : ms-vscode.Theme-TomorrowKit
+ExtensionName : Theme-TomorrowKit
+DisplayName   : Tomorrow and Tomorrow Night Theme Kit
+Version       : 0.1.0
+ExtensionPath : C:\Users\i2871rbp\.vscode\extensions\ms-vscode.Theme-TomorrowKit</dev:code>
+<dev:remarks><maml:para>Outputs the Installed extensions for the Stable Version of VSCode
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 2</maml:title>
+<dev:code>PS C:\&gt; Get-VSCodeExtension -Insiders
+
+FullName      : ms-vscode.PowerShell
+ExtensionName : PowerShell
+DisplayName   : PowerShell
+Version       : 0.6.1
+ExtensionPath : C:\Users\i2871rbp\.vscode-insiders\extensions\ms-vscode.PowerShell-0.6.1
+
+FullName      : ms-vscode.Theme-MaterialKit
+ExtensionName : Theme-MaterialKit
+DisplayName   : Material Theme Kit
+Version       : 0.1.0
+ExtensionPath : C:\Users\i2871rbp\.vscode-insiders\extensions\ms-vscode.Theme-MaterialKit
+
+FullName      : ms-vscode.Theme-PredawnKit
+ExtensionName : Theme-PredawnKit
+DisplayName   : Predawn Theme Kit
+Version       : 0.1.0
+ExtensionPath : C:\Users\i2871rbp\.vscode-insiders\extensions\ms-vscode.Theme-PredawnKit
+
+FullName      : ms-vscode.Theme-TomorrowKit
+ExtensionName : Theme-TomorrowKit
+DisplayName   : Tomorrow and Tomorrow Night Theme Kit
+Version       : 0.1.0
+ExtensionPath : C:\Users\i2871rbp\.vscode-insiders\extensions\ms-vscode.Theme-TomorrowKit</dev:code>
+<dev:remarks><maml:para>Outputs the Installed extensions for the Insiders Version of VSCode
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks></command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Get-VSCodeExtensionStats</command:name>
+<command:verb>Get</command:verb>
+<command:noun>VSCodeExtensionStats</command:noun>
+<maml:description><maml:para>Gets statistics for a VSCode Extension.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>Gets statistics for a VSCode Extension or multiple extensions using a wildcard.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Get-VSCodeExtensionStats</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>DisplayName</maml:name>
+<maml:Description><maml:para>The Extensions Display Name to be Installed.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
+<maml:Description><maml:para>Allows the use of WildCards
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+<command:syntaxItem><maml:name>Get-VSCodeExtensionStats</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>ExtensionName</maml:name>
+<maml:Description><maml:para>The Extensions Name to be Installed
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
+<maml:Description><maml:para>Allows the use of WildCards
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+<command:syntaxItem><maml:name>Get-VSCodeExtensionStats</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>FullName</maml:name>
+<maml:Description><maml:para>Full Name of extension including Publisher's Name. PublisherName.ExtensionName
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
+<maml:Description><maml:para>Allows the use of WildCards
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>DisplayName</maml:name>
+<maml:Description><maml:para>The Extensions Display Name to be Installed.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>ExtensionName</maml:name>
+<maml:Description><maml:para>The Extensions Name to be Installed
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>FullName</maml:name>
+<maml:Description><maml:para>Full Name of extension including Publisher's Name. PublisherName.ExtensionName
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
+<maml:Description><maml:para>Allows the use of WildCards
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes><command:inputType><dev:type><maml:name>System.String[]</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:inputType>
+</command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>System.Management.Automation.PSObject</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1</maml:title>
+<dev:code>PS C:\&gt; Get-VSCodeExtensionStats -DisplayName 'Flatland Monokai Theme'
+
+Extension Name   : Flatland Monokai Theme
+Publisher Name   : gerane
+Install Count    : 8548
+Average Rating   : 5
+Rating Count     : 4
+Trending Daily   : 7.48747055944117
+Trending Weekly  : 37.234988728031766
+Trending Monthly : 183.44302870630867</dev:code>
+<dev:remarks><maml:para>Gets stats for the Flatland Monokai Theme using Display Name
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 2</maml:title>
+<dev:code>PS C:\&gt; Get-VSCodeExtensionStats -ExtensionName 'Theme-FlatlandMonokai'
+
+Extension Name   : Flatland Monokai Theme
+Publisher Name   : gerane
+Install Count    : 8548
+Average Rating   : 5
+Rating Count     : 4
+Trending Daily   : 7.48747055944117
+Trending Weekly  : 37.234988728031766
+Trending Monthly : 183.44302870630867</dev:code>
+<dev:remarks><maml:para>Gets stats for the Flatland Monokai Theme using Extension Name
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 3</maml:title>
+<dev:code>PS C:\&gt; Get-VSCodeExtensionStats -FullName 'gerane.Theme-FlatlandMonokai'
+
+Extension Name   : Flatland Monokai Theme
+Publisher Name   : gerane
+Install Count    : 8548
+Average Rating   : 5
+Rating Count     : 4
+Trending Daily   : 7.48747055944117
+Trending Weekly  : 37.234988728031766
+Trending Monthly : 183.44302870630867</dev:code>
+<dev:remarks><maml:para>Gets stats for the Flatland Monokai Theme using Full Name
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 4</maml:title>
+<dev:code>PS C:\&gt; Get-VSCodeExtensionStats -ExtensionName '*Flatland*' -WildCard
+
+Extension Name   : Flatland Monokai Theme
+Publisher Name   : gerane
+Install Count    : 8548
+Average Rating   : 5
+Rating Count     : 4
+Trending Daily   : 7.48747055944117
+Trending Weekly  : 37.234988728031766
+Trending Monthly : 183.44302870630867
+
+Extension Name   : Flatland_Dark Theme
+Publisher Name   : gerane
+Install Count    : 982
+Average Rating   : 
+Rating Count     : 
+Trending Daily   : 1.7649484774501054
+Trending Weekly  : 6.287628950916
+Trending Monthly : 19.41443325195116
+
+Extension Name   : Flatland_Black Theme
+Publisher Name   : gerane
+Install Count    : 546
+Average Rating   : 
+Rating Count     : 
+Trending Daily   : 2.1339517893452813
+Trending Weekly  : 3.912244947133016
+Trending Monthly : 8.891465788938671</dev:code>
+<dev:remarks><maml:para>Gets stats for all Extension Names containing Flatland using the WildCard switch.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks></command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Get-VSCodePublisherStats</command:name>
+<command:verb>Get</command:verb>
+<command:noun>VSCodePublisherStats</command:noun>
+<maml:description><maml:para>Get statistics for a Publisher
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>Get VSCode Gallery statistics for a Publisher.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Get-VSCodePublisherStats</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none"><maml:name>PublisherName</maml:name>
+<maml:Description><maml:para>The name of the Publisher
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none"><maml:name>PublisherName</maml:name>
+<maml:Description><maml:para>The name of the Publisher
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes><command:inputType><dev:type><maml:name>String</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:inputType>
+</command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>System.Management.Automation.PSObject</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1</maml:title>
+<dev:code>PS C:\&gt; Get-VSCodePublisherStats -PublisherName 'gerane'
+
+Publisher Name            : gerane
+Publisher ID              : a5c25faf-bf60-4941-81b9-9a852b96c5fb
+Total Extension Installs  : 98994
+Extension Count           : 287
+Most Downloaded Extension : Flatland Monokai Theme
+Most Downloaded Count     : 8548</dev:code>
+<dev:remarks><maml:para>Gets the statistics for the provided publisher.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks></command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Install-VSCodeExtension</command:name>
+<command:verb>Install</command:verb>
+<command:noun>VSCodeExtension</command:noun>
+<maml:description><maml:para>Installs a VSCode Extension.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>Installs a VSCode Extension for either Stable or Insiders versions.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Install-VSCodeExtension</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet. Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>DisplayName</maml:name>
+<maml:Description><maml:para>The Extensions Display Name to be Installed.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Insiders</maml:name>
+<maml:Description><maml:para>Switch to Target Insiders version of Code
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
+<maml:Description><maml:para>Allows the use of WildCards
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+<command:syntaxItem><maml:name>Install-VSCodeExtension</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet. Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>ExtensionName</maml:name>
+<maml:Description><maml:para>The Extensions Name to be Installed
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Insiders</maml:name>
+<maml:Description><maml:para>Switch to Target Insiders version of Code
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
+<maml:Description><maml:para>Allows the use of WildCards
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+<command:syntaxItem><maml:name>Install-VSCodeExtension</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet. Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>FullName</maml:name>
+<maml:Description><maml:para>Full Name of extension including Publisher's Name. PublisherName.ExtensionName
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Insiders</maml:name>
+<maml:Description><maml:para>Switch to Target Insiders version of Code
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
+<maml:Description><maml:para>Allows the use of WildCards
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet. Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>DisplayName</maml:name>
+<maml:Description><maml:para>The Extensions Display Name to be Installed.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>ExtensionName</maml:name>
+<maml:Description><maml:para>The Extensions Name to be Installed
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>FullName</maml:name>
+<maml:Description><maml:para>Full Name of extension including Publisher's Name. PublisherName.ExtensionName
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Insiders</maml:name>
+<maml:Description><maml:para>Switch to Target Insiders version of Code
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
+<maml:Description><maml:para>Allows the use of WildCards
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes><command:inputType><dev:type><maml:name>System.String[]</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:inputType>
+</command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>System.Object</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1</maml:title>
+<dev:code>PS C:\&gt; Install-VSCodeExtension -DisplayName 'Flatland Monokai Theme'</dev:code>
+<dev:remarks><maml:para>This example uses the Display Name to Install the Extension.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 2</maml:title>
+<dev:code>PS C:\&gt; Install-VSCodeExtension -ExtensionName 'Theme-FlatlandMonokai' -Insiders</dev:code>
+<dev:remarks><maml:para>This example uses the Extension Name to Install the Extension. It is being installed for the Insiders version of VSCode.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 3</maml:title>
+<dev:code>PS C:\&gt; Install-VSCodeExtension -FullName 'gerane.Theme-FlatlandMonokai'</dev:code>
+<dev:remarks><maml:para>This example uses the Full Name to Install the Extension. The Full Name is the Publisher Name and Extension Name combined with a dot.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 4</maml:title>
+<dev:code>PS C:\&gt; Install-VSCodeExtension -FullName 'gerane.*' -WildCard</dev:code>
+<dev:remarks><maml:para>This example Installs all Extensions by the Publisher gerane since it is using a Wildcard.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks></command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Uninstall-VSCodeExtension</command:name>
+<command:verb>Uninstall</command:verb>
+<command:noun>VSCodeExtension</command:noun>
+<maml:description><maml:para>Uninstalls VSCode Extensions.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>Uninstalls Extensions for Stable or Insiders Versions of VSCode using names or Wildcards.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Uninstall-VSCodeExtension</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet. Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>DisplayName</maml:name>
+<maml:Description><maml:para>The Extensions Display Name to be Installed.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Insiders</maml:name>
+<maml:Description><maml:para>Switch to Target Insiders version of Code
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
+<maml:Description><maml:para>Allows the use of WildCards
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+<command:syntaxItem><maml:name>Uninstall-VSCodeExtension</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet. Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>ExtensionName</maml:name>
+<maml:Description><maml:para>The Extensions Name to be Installed
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Insiders</maml:name>
+<maml:Description><maml:para>Switch to Target Insiders version of Code
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
+<maml:Description><maml:para>Allows the use of WildCards
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+<command:syntaxItem><maml:name>Uninstall-VSCodeExtension</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet. Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>FullName</maml:name>
+<maml:Description><maml:para>Full Name of extension including Publisher's Name. PublisherName.ExtensionName
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Insiders</maml:name>
+<maml:Description><maml:para>Switch to Target Insiders version of Code
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
+<maml:Description><maml:para>Allows the use of WildCards
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet. Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>DisplayName</maml:name>
+<maml:Description><maml:para>The Extensions Display Name to be Installed.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>ExtensionName</maml:name>
+<maml:Description><maml:para>The Extensions Name to be Installed
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>FullName</maml:name>
+<maml:Description><maml:para>Full Name of extension including Publisher's Name. PublisherName.ExtensionName
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Insiders</maml:name>
+<maml:Description><maml:para>Switch to Target Insiders version of Code
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
+<maml:Description><maml:para>Allows the use of WildCards
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes><command:inputType><dev:type><maml:name>System.String[]</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:inputType>
+</command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>System.Object</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1</maml:title>
+<dev:code>PS C:\&gt; Uninstall-VSCodeExtension -DisplayName 'Flatland Monokai Theme'</dev:code>
+<dev:remarks><maml:para>This example uses the Display Name to Uninstall the Extension.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 2</maml:title>
+<dev:code>PS C:\&gt; Uninstall-VSCodeExtension -ExtensionName 'Theme-FlatlandMonokai' -Insiders</dev:code>
+<dev:remarks><maml:para>This example uses the Extension Name to Uninstall the Extension. It is being uninstalled for the Insiders version of VSCode.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 3</maml:title>
+<dev:code>PS C:\&gt; Uninstall-VSCodeExtension -FullName 'gerane.Theme-FlatlandMonokai'</dev:code>
+<dev:remarks><maml:para>This example uses the Full Name to Uninstall the Extension. The Full Name is the Publisher Name and Extension Name combined with a dot.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 4</maml:title>
+<dev:code>PS C:\&gt; Uninstall-VSCodeExtension -FullName 'gerane.*' -WildCard</dev:code>
+<dev:remarks><maml:para>This example Uninstalls all Extensions by the Publisher gerane since it is using a Wildcard.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks></command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Update-VSCodeExtension</command:name>
+<command:verb>Update</command:verb>
+<command:noun>VSCodeExtension</command:noun>
+<maml:description><maml:para>Updates VSCode Extensions.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>Finds outdated Extensions for Stable or Insiders versions of VSCode and Updates them.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Update-VSCodeExtension</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet. Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Insiders</maml:name>
+<maml:Description><maml:para>Switch to Target Insiders version of Code
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet. Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Insiders</maml:name>
+<maml:Description><maml:para>Switch to Target Insiders version of Code
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes><command:inputType><dev:type><maml:name>None</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:inputType>
+</command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>System.Object</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1</maml:title>
+<dev:code>PS C:\&gt; Update-VSCodeExtension</dev:code>
+<dev:remarks><maml:para>Updates Extensions for the Stable Version of VSCode.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 2</maml:title>
+<dev:code>PS C:\&gt; Update-VSCodeExtension -Insiders</dev:code>
+<dev:remarks><maml:para>Updates Extensions for the Insiders Version of VSCode.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks></command:relatedLinks>
+</command:command>
+</helpItems>
