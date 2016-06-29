@@ -1,6 +1,7 @@
 function Get-VSCodePublisherStats
 {
     [CmdletBinding()]
+    [OutputType([PSCustomObject])]
     param
     (
         [Parameter(Mandatory=$true)]
@@ -20,7 +21,9 @@ function Get-VSCodePublisherStats
         $Exts = $Results.results.extensions | where { $_.Publisher.PublisherName -eq $PublisherName }
 
         if ($Exts)
-        {                                
+        {     
+            Write-Verbose -Message "Collecting Publisher Statistics"    
+
             foreach ($Ext in $Exts)
             {
                 $Count = ($Ext.statistics | Where-Object { $_.statisticName -eq 'Install' }).value

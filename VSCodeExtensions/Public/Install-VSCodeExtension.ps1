@@ -15,6 +15,11 @@ function Install-VSCodeExtension
 
         [Parameter(ParameterSetName="ExtensionName",Mandatory=$false)]
         [Parameter(ParameterSetName="DisplayName",Mandatory=$false)]
+        [Parameter(ParameterSetName="FullName",Mandatory=$false)]        
+        [Version]$Version,
+
+        [Parameter(ParameterSetName="ExtensionName",Mandatory=$false)]
+        [Parameter(ParameterSetName="DisplayName",Mandatory=$false)]
         [Parameter(ParameterSetName="FullName",Mandatory=$false)]
         [switch]$WildCard,
 
@@ -33,28 +38,16 @@ function Install-VSCodeExtension
         $Null = $PSBoundParameters.Remove('Confirm')
 
         $Extensions = Find-VSCodeExtension @PSBoundParameters
-
-        if ($Insiders)
-        {
-            $InstalledExtensions = Get-VSCodeExtension -Insiders
-            $VSCodeInstallation = Get-VSCodeInstallation -Insiders                        
-        }
-        else
-        {
-            $InstalledExtensions = Get-VSCodeExtension
-            $VSCodeInstallation = Get-VSCodeInstallation
-            
-            if ([version]$VSCodeInstallation.DisplayVersion -lt [version]'1.2.0')
-            {
-                Throw "VSCode Version 1.2.0 or above is required `nCurrent Version: $($VSCodeInstallation.DisplayVersion)"
-            }
-        }        
+        $InstalledExtensions = Get-VSCodeExtension $Insiders
+        $ExtensionGroups = $InstalledExtensions | Group-Object -Property 'FullName'      
 
         if ($Extensions)
         {
             foreach ($Extension in $Extensions)
             {
-                if ($InstalledExtensions.FullName -contains $Extension.FullName)
+                $InstalledVersion = $ExtensionGroups | Where-Object { $_.Name -eq $Extension.Name } | Select-Object -ExpandProperty Group | Sort-Object -Descending -Property Version | Select-Object -First 1 
+
+                if ($InstalledExtensions.FullName -contains $Extension.FullName -AND $InstalledVersion.Version -ge $Extension.Version )
                 {
                     Write-Verbose -Message "Extension $($Extension.FullName) is already Installed"
                 }
@@ -64,21 +57,23 @@ function Install-VSCodeExtension
                     
                     if ($PSCmdlet.ShouldProcess($($Extension.FullName), 'Install Extension'))
                     {
-                        if ($Insiders)
+                        Try
                         {
-                            $CommandLine = "/c `"$($VSCodeInstallation.InstallLocation)bin\code-insiders.cmd`" --install-extension $($Extension.FullName)"
-                            Start-Process -FilePath "cmd" -ArgumentList $CommandLine -Wait -WindowStyle Hidden
-                            Start-Sleep -Seconds 1
+                            Write-Debug -Message "Downloading the VSIX Package"                                
+                            Get-VSCodeVsix -Extension $Extension
 
-                            $InstalledExtensions = Get-VSCodeExtension -Insiders
-                        }
-                        else
+                            Write-Debug -Message "Expanding the VSIX Archive"
+                            Expand-VSCodeVsix -Extension $Extension 
+
+                            Write-Debug -Message "Installing the VSIX to Extension Directory"
+                            Install-VSCodeVsix -Extension $Extension $Insiders
+
+                            Write-Debug -Message "Gathering Installed Extensions"
+                            $InstalledExtensions = Get-VSCodeExtension $Insiders
+                        }                          
+                        catch
                         {
-                            $CommandLine = "/c `"$($VSCodeInstallation.InstallLocation)bin\code.cmd`" --install-extension $($Extension.FullName)"
-                            Start-Process -FilePath "cmd" -ArgumentList $CommandLine -Wait -WindowStyle Hidden
-                            Start-Sleep -Seconds 1
-
-                            $InstalledExtensions = Get-VSCodeExtension
+                            Throw
                         }
 
                         if ($InstalledExtensions.FullName -contains $Extension.FullName)

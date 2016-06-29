@@ -1,8 +1,10 @@
 Function Get-VSCodeInstallation
 {
     [CmdletBinding()]
+    [OutputType([PSCustomObject])]
     param
     (
+        [parameter(Position=0)]    
         [switch]$Insiders
     )
 

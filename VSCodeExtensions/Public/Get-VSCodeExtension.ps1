@@ -1,25 +1,21 @@
 function Get-VSCodeExtension
 {
     [CmdletBinding()]
+    [OutputType([PSCustomObject])]
     param
     (
+        [Parameter(Position=0)]
         [switch]$Insiders
     )
     
     Begin {}
     
     Process
-    {        
-        if ($Insiders)
-        {            
-            $ExtensionPath = "$HOME\.vscode-insiders\extensions"
-        }
-        else
-        {
-            $ExtensionPath = "$HOME\.vscode\extensions"
-        }
+    {   
+        #TODO: Make this searchable by Packages     
+        $ExtensionPath = Get-VSCodeExtensionFolder $Insiders
         
-        Write-Verbose -Message "Using Extension Path: $($ExtensionPath)"
+        Write-Debug -Message "Using Extension Path: $($ExtensionPath)"
 
         If (Test-Path -Path $ExtensionPath)
         {
@@ -35,8 +31,15 @@ function Get-VSCodeExtension
                             'FullName'      = "$($PackageJson.Publisher).$($PackageJson.Name)"
                             'ExtensionName' = $PackageJson.Name
                             'DisplayName'   = $PackageJson.DisplayName
+                            'Version'       = $PackageJson.Version
+                            'ExtensionPath' = $ExtensionDir.FullName
                         }
-                        
+
+                        If ($Insiders)
+                        {
+                            $Extension | Add-Member -MemberType NoteProperty -Name 'Insiders' -Value $True
+                        }
+
                         $Extension
                     }
                 }

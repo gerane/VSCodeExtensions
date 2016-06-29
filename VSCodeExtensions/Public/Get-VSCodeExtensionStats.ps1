@@ -1,6 +1,7 @@
 function Get-VSCodeExtensionStats
 {
     [CmdletBinding(DefaultParameterSetName="ExtensionName")]
+    [OutputType([PSCustomObject])]
     param
     (
         [Parameter(ParameterSetName="ExtensionName",Mandatory=$true)]
@@ -19,10 +20,7 @@ function Get-VSCodeExtensionStats
         [switch]$WildCard
     )
     
-    Begin
-    {
-        $Results = Invoke-RestMethod -Method Get -Uri 'https://vscode.blob.core.windows.net/gallery/index'
-    }
+    Begin {}
     
     Process
     {

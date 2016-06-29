@@ -28,95 +28,85 @@ function Uninstall-VSCodeExtension
     
     Process
     {
-        if ($Insiders)
-        {
-            $InstalledExtensions = Get-VSCodeExtension -Insiders
-            $VSCodeInstallation = Get-VSCodeInstallation -Insiders                        
-        }
-        else
-        {
-            $InstalledExtensions = Get-VSCodeExtension
-            $VSCodeInstallation = Get-VSCodeInstallation
-            
-            if ([version]$VSCodeInstallation.DisplayVersion -lt [version]'1.2.0')
-            {
-                Throw "VSCode Version 1.2.0 or above is required `nCurrent Version: $($VSCodeInstallation.DisplayVersion)"
-            }
-        }        
+        
+        $InstalledExtensions = Get-VSCodeExtension $Insiders      
 
         switch ($psCmdlet.ParameterSetName)
         {
             'ExtensionName' {
-                Write-Verbose -Message "Using ExtensionName"
+                $Name = $ExtensionName
+                Write-Verbose -Message "Using ExtensionName $($Name)"
 
                 if ($WildCard)
                 {
-                    Write-Verbose -Message "Wildcard Switch is Present"
+                    Write-Debug -Message "Wildcard Switch is Present"
 
                     if ($ExtensionName -match '\*')
                     {
-                        Write-Verbose -Message "Wildcard `"*`" is Present in ExtensionName"
+                        Write-Debug -Message "Wildcard `"*`" is Present in ExtensionName"
                         $Extension = $InstalledExtensions | Where-Object { $_.ExtensionName -Like $ExtensionName }
                     }
                     else 
                     {
-                        Write-Verbose -Message "No WildCards so add them to beginning and end for ExtensionName search"
+                        Write-Debug -Message "No WildCards so add them to beginning and end for ExtensionName search"
                         $Extension = $InstalledExtensions | Where-Object { $_.ExtensionName -like "*$ExtensionName*" }    
                     }
                 }
                 else 
                 {
-                    Write-Verbose -Message "Get Extension without WildCards"
+                    Write-Debug -Message "Get Extension without WildCards"
                     $Extension = $InstalledExtensions | Where-Object { $_.ExtensionName -eq $ExtensionName }
                 }
             }
 
             'DisplayName' {
-                Write-Verbose -Message "Using DisplayName"
+                $Name = $DisplayName
+                Write-Verbose -Message "Using DisplayName $($Name)"
 
                 if ($WildCard)
                 {
-                    Write-Verbose -Message "Wildcard Switch is Present"
+                    Write-Debug -Message "Wildcard Switch is Present"
 
                     if ($DisplayName -match '\*')
                     {
-                        Write-Verbose -Message "Wildcard `"*`" is Present in DisplayName"
+                        Write-Debug -Message "Wildcard `"*`" is Present in DisplayName"
                         $Extension = $InstalledExtensions | Where-Object { $_.DisplayName -like $DisplayName }
                     }
                     else 
                     {
-                        Write-Verbose -Message "No WildCards so add them to beginning and end for DisplayName search"
+                        Write-Debug -Message "No WildCards so add them to beginning and end for DisplayName search"
                         $Extension = $InstalledExtensions | Where-Object { $_.DisplayName -like "*$DisplayName*" }    
                     }
                 }
                 else 
                 {
-                    Write-Verbose -Message "Get Extension without WildCards"
+                    Write-Debug -Message "Get Extension without WildCards"
                     $Extension = $InstalledExtensions | Where-Object { $_.DisplayName -eq $DisplayName }
                 }
             }      
 
             'FullName' {
-                Write-Verbose -Message "Using FullName"
+                $Name = $FullName
+                Write-Verbose -Message "Using FullName $($Name)"
 
                 if ($WildCard)
                 {
-                    Write-Verbose -Message "Wildcard Switch is Present"
+                    Write-Debug -Message "Wildcard Switch is Present"
 
                     if ($DisplayName -match '\*')
                     {
-                        Write-Verbose -Message "Wildcard `"*`" is Present in FullName"
+                        Write-Debug -Message "Wildcard `"*`" is Present in FullName"
                         $Extension = $InstalledExtensions | Where-Object { $_.FullName -like $FullName }
                     }
                     else 
                     {
-                        Write-Verbose -Message "No WildCards so add them to beginning and end for FullName search"
+                        Write-Debug -Message "No WildCards so add them to beginning and end for FullName search"
                         $Extension = $InstalledExtensions | Where-Object { $_.FullName -like "*$FullName*" }    
                     }
                 }
                 else 
                 {
-                    Write-Verbose -Message "Get Extension without WildCards"
+                    Write-Debug -Message "Get Extension without WildCards"
                     $Extension = $InstalledExtensions | Where-Object { $_.FullName -eq $FullName }
                 } 
             }
@@ -129,25 +119,20 @@ function Uninstall-VSCodeExtension
                 if ($PSCmdlet.ShouldProcess($($Ext.FullName), 'Uninstall Extension'))
                 {
                     Write-Verbose -Message "Uninstalling Extension: $($Ext.FullName)"
-                    
-                    if ($Insiders)
-                    {
-                        $CommandLine = "/c `"$($VSCodeInstallation.InstallLocation)bin\code-insiders.cmd`" --uninstall-extension $($Ext.FullName)"
-                        Start-Process -FilePath "cmd" -ArgumentList $CommandLine -Wait -WindowStyle Hidden
-                        Start-Sleep -Seconds 1
 
-                        $InstalledExtensions = Get-VSCodeExtension -Insiders
+                    Try
+                    {
+                        Write-Debug -Message "Removing Directory $($Ext.ExtensionPath)"
+                        Remove-Item -Path $Ext.ExtensionPath -Recurse -Force
+
+                        $InstalledExtensions = Get-VSCodeExtension $Insiders
                     }
-                    else
+                    Catch
                     {
-                        $CommandLine = "/c `"$($VSCodeInstallation.InstallLocation)bin\code.cmd`" --uninstall-extension $($Ext.FullName)"
-                        Start-Process -FilePath "cmd" -ArgumentList $CommandLine -Wait -WindowStyle Hidden
-                        Start-Sleep -Seconds 1
-
-                        $InstalledExtensions = Get-VSCodeExtension
+                        Throw
                     }
 
-                    if ($InstalledExtensions.FullName -notcontains $Ext.FullName)
+                    if ($InstalledExtensions.ExtensionPath -notcontains $Ext.ExtensionPath)
                     {
                         Write-Verbose "Extension $($Ext.FullName) uninstall complete."
                     }
@@ -160,7 +145,7 @@ function Uninstall-VSCodeExtension
         }
         else
         {
-            Write-Warning -Message "No Matching Installed Extensions found"
+            Write-Warning -Message "No Matching Installed Extensions found for $($Name)"
         }
     }
 }
