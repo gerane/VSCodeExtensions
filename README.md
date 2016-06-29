@@ -1,5 +1,5 @@
 ﻿[![Build status](https://ci.appveyor.com/api/projects/status/aovgv1lycoj6ius8/branch/master?svg=true)](https://ci.appveyor.com/project/gerane/vscodeextensions/branch/master)
-[![Documentation Status](https://readthedocs.org/projects/posh-teamviewer/badge/?version=latest)](http://posh-teamviewer.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/vscodeextensions/badge/?version=latest)](http://vscodeextensions.readthedocs.io/en/latest/?badge=latest)
 
 # VSCodeExtensions Module
 
