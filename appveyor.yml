@@ -5,16 +5,19 @@ environment:
 # Allow WMF5 (i.e. PowerShellGallery functionality)
 os: WMF 5
 
+install:
+  - ps: Get-PackageProvider -Name NuGet -ForceBootstrap
+  - ps: Install-Module Psake, PSDeploy, Pester, BuildHelpers, PlatyPS, PSScriptAnalyzer -force
+  - ps: Import-Module Psake, BuildHelpers, PlatyPS, PSDeploy, Pester
 # Skip on updates to the readme.
 # We can force this by adding [skip ci] or [ci skip] anywhere in commit message 
 skip_commits:
   message: /updated readme.*|update readme.*s/
 
-build: false
-
-#before_test:
-#  - ps: . .\Build.ps1
+build: false        
 
 #Kick off the CI/CD pipeline
 test_script:
-  - ps: . .\Build.ps1
+  - ps: | 
+      Invoke-psake .\Build.Psake.ps1
+      if ($psake.build_success -eq $false) { exit 1 } else { exit 0 }

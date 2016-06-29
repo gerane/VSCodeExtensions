@@ -2,6 +2,7 @@
 
 Properties {
     Set-BuildEnvironment
+    $ErrorActionPreference = 'Stop'
 
     $ProjectRoot = $Psake.build_script_dir
     $ProjectName = 'VSCodeExtensions'
