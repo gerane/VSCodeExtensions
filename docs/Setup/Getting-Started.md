@@ -26,7 +26,6 @@ PS> Install-Module -Name VSCodeExtensions
 
 ## Links
 
-- PSGallery - [VSCodeExtensions](https://www.powershellgallery.com/packages/VSCodeExtensions/)
 - Github - [Brandon Padgett](https://github.com/gerane)
 - Twitter - [@brandonpadgett](https://twitter.com/BrandonPadgett)
 - Website - [BrandonPadgett.com](http://brandonpadgett.com)

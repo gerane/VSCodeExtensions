@@ -27,7 +27,7 @@ CompanyName = 'Unknown'
 Copyright = '(c) 2016 Brandon Padgett. All rights reserved.'
 
 # Description of the functionality provided by this module
-# Description = ''
+Description = 'Module to Manage Visual Studio Code Extensions'
 
 # Minimum version of the Windows PowerShell engine required by this module
 # PowerShellVersion = ''
