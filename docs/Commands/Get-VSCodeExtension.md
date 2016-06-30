@@ -1,22 +1,20 @@
 ---
 external help file: VSCodeExtensions-help.xml
-online version: 
 schema: 2.0.0
+online version: 
 ---
 
 # Get-VSCodeExtension
 ## SYNOPSIS
 Get Installed VSCode Extensions.
-
 ## SYNTAX
 
 ```
-Get-VSCodeExtension [-Insiders]
+Get-VSCodeExtension [-Insiders] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 Get Installed Extensions for Stable or Release Versions of VSCode.
-
 ## EXAMPLES
 
 ### Example 1
@@ -46,11 +44,9 @@ ExtensionName : Theme-TomorrowKit
 DisplayName   : Tomorrow and Tomorrow Night Theme Kit
 Version       : 0.1.0
 ExtensionPath : C:\Users\i2871rbp\.vscode\extensions\ms-vscode.Theme-TomorrowKit
-
 ```
 
 Outputs the Installed extensions for the Stable Version of VSCode
-
 ### Example 2
 ```
 PS C:\> Get-VSCodeExtension -Insiders
@@ -78,11 +74,9 @@ ExtensionName : Theme-TomorrowKit
 DisplayName   : Tomorrow and Tomorrow Night Theme Kit
 Version       : 0.1.0
 ExtensionPath : C:\Users\i2871rbp\.vscode-insiders\extensions\ms-vscode.Theme-TomorrowKit
-
 ```
 
 Outputs the Installed extensions for the Insiders Version of VSCode
-
 ## PARAMETERS
 
 ### -Insiders
@@ -100,15 +94,15 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 ## INPUTS
 
 ### None
 
-
 ## OUTPUTS
 
 ### System.Management.Automation.PSObject
-
 
 ## NOTES
 

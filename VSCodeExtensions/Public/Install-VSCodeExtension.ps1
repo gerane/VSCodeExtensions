@@ -1,26 +1,23 @@
+# .ExternalHelp VSCodeExtensions-Help.xml
 function Install-VSCodeExtension
 {
     [CmdletBinding(DefaultParameterSetName="ExtensionName",SupportsShouldProcess=$true)]
     param
     (
-        [Parameter(ParameterSetName="ExtensionName",Mandatory=$true,ValueFromPipelineByPropertyName=$true)]
+        [Parameter(ParameterSetName="ExtensionName",Mandatory=$true,ValueFromPipelineByPropertyName=$true,Position=0)]
         [string[]]$ExtensionName,
 
-        [Parameter(ParameterSetName="DisplayName",Mandatory=$true,ValueFromPipelineByPropertyName=$true)]
+        [Parameter(ParameterSetName="DisplayName",Mandatory=$true,ValueFromPipelineByPropertyName=$true,Position=0)]
         [string[]]$DisplayName,
 
-        [Parameter(ParameterSetName="FullName",Mandatory=$true,ValueFromPipelineByPropertyName=$true)]
-        [ValidatePattern('^[^.]+\.[^.]+$')]
-        [string[]]$FullName,
+        [Parameter(Mandatory=$false,ValueFromPipelineByPropertyName=$true,Position=1)]
+        [string[]]$PublisherName,
 
-        [Parameter(ParameterSetName="ExtensionName",Mandatory=$false)]
-        [Parameter(ParameterSetName="DisplayName",Mandatory=$false)]
-        [Parameter(ParameterSetName="FullName",Mandatory=$false)]
-        [switch]$WildCard,
+        [ValidateSet('Languages','Snippets','Linters','Debuggers','Other','Themes','Productivity')]
+        [string[]]$Category,
 
-        [Parameter(ParameterSetName="ExtensionName",Mandatory=$false)]
-        [Parameter(ParameterSetName="DisplayName",Mandatory=$false)]
-        [Parameter(ParameterSetName="FullName",Mandatory=$false)]
+        [string[]]$Tag,
+
         [switch]$Insiders                    
     )
     
@@ -33,14 +30,14 @@ function Install-VSCodeExtension
         $Null = $PSBoundParameters.Remove('Confirm')
 
         $Extensions = Find-VSCodeExtension @PSBoundParameters
-        $InstalledExtensions = Get-VSCodeExtension $Insiders
+        $InstalledExtensions = Get-VSCodeExtension -Insiders:$Insiders
         $ExtensionGroups = $InstalledExtensions | Group-Object -Property 'FullName'      
 
         if ($Extensions)
         {
             foreach ($Extension in $Extensions)
             {
-                $InstalledVersion = $ExtensionGroups | Where-Object { $_.Name -eq $Extension.Name } | Select-Object -ExpandProperty Group | Sort-Object -Descending -Property Version | Select-Object -First 1 
+                $InstalledVersion = $ExtensionGroups | Where-Object { $_.Name -eq $Extension.FullName } | Select-Object -ExpandProperty Group | Sort-Object -Descending -Property Version | Select-Object -First 1 
 
                 if ($InstalledExtensions.FullName -contains $Extension.FullName -AND $InstalledVersion.Version -ge $Extension.Version )
                 {
@@ -61,10 +58,10 @@ function Install-VSCodeExtension
                             Expand-VSCodeVsix -Extension $Extension 
 
                             Write-Debug -Message "Installing the VSIX to Extension Directory"
-                            Install-VSCodeVsix -Extension $Extension $Insiders
+                            Install-VSCodeVsix -Extension $Extension -Insiders:$Insiders
 
                             Write-Debug -Message "Gathering Installed Extensions"
-                            $InstalledExtensions = Get-VSCodeExtension $Insiders
+                            $InstalledExtensions = Get-VSCodeExtension -Insiders:$Insiders
                         }                          
                         catch
                         {

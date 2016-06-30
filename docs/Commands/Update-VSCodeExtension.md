@@ -1,22 +1,20 @@
 ---
 external help file: VSCodeExtensions-help.xml
-online version: 
 schema: 2.0.0
+online version: 
 ---
 
 # Update-VSCodeExtension
 ## SYNOPSIS
 Updates VSCode Extensions.
-
 ## SYNTAX
 
 ```
-Update-VSCodeExtension [-Insiders] [-WhatIf] [-Confirm]
+Update-VSCodeExtension [-Insiders] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 Finds outdated Extensions for Stable or Insiders versions of VSCode and Updates them.
-
 ## EXAMPLES
 
 ### Example 1
@@ -25,14 +23,12 @@ PS C:\> Update-VSCodeExtension
 ```
 
 Updates Extensions for the Stable Version of VSCode.
-
 ### Example 2
 ```
 PS C:\> Update-VSCodeExtension -Insiders
 ```
 
 Updates Extensions for the Insiders Version of VSCode.
-
 ## PARAMETERS
 
 ### -Confirm
@@ -80,10 +76,11 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 ## INPUTS
 
 ### None
-
 
 ## OUTPUTS
 

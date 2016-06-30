@@ -9,12 +9,12 @@
 </maml:para>
 </maml:description>
 </command:details>
-<maml:description><maml:para>Find available extensions with or without Wildcards on the VSCode Extension Gallery.
+<maml:description><maml:para>Find available extensions with or without Wildcards on the VSCode Extension Gallery. Allows Searching via Tags and Categories.
 </maml:para>
 </maml:description>
 <command:syntax><command:syntaxItem><maml:name>Find-VSCodeExtension</maml:name>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>DisplayName</maml:name>
-<maml:Description><maml:para>The Extensions Display Name to be Installed.
+<command:parameter required="true" variableLength="true" globbing="true" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>DisplayName</maml:name>
+<maml:Description><maml:para>The Extensions Display Name. Accepts WildCards.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
@@ -22,18 +22,37 @@
 <maml:uri /></dev:type>
 <dev:defaultValue></dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
-<maml:Description><maml:para>Allows the use of WildCards
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Category</maml:name>
+<maml:Description><maml:para>Filter Extensions by Categories. Valid categoies are 'Languages', 'Snippets', 'Linters', 'Debuggers', 'Other', 'Themes' and 'Productivity'
 </maml:para>
 </maml:Description>
-<dev:type><maml:name>SwitchParameter</maml:name>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
 <maml:uri /></dev:type>
-<dev:defaultValue>False</dev:defaultValue>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="true" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>PublisherName</maml:name>
+<maml:Description><maml:para>Filter Extensions by Publisher Name. Accepts WildCards.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="true" pipelineInput="False" position="named" aliases="none"><maml:name>Tag</maml:name>
+<maml:Description><maml:para>Filter Extensions by Tag names. Accepts WildCards.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
 </command:parameter>
 </command:syntaxItem>
 <command:syntaxItem><maml:name>Find-VSCodeExtension</maml:name>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>ExtensionName</maml:name>
-<maml:Description><maml:para>The Extensions Name to be Installed
+<command:parameter required="true" variableLength="true" globbing="true" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>ExtensionName</maml:name>
+<maml:Description><maml:para>The Extensions Name. Accepts WildCards.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
@@ -41,18 +60,8 @@
 <maml:uri /></dev:type>
 <dev:defaultValue></dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
-<maml:Description><maml:para>Allows the use of WildCards
-</maml:para>
-</maml:Description>
-<dev:type><maml:name>SwitchParameter</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue>False</dev:defaultValue>
-</command:parameter>
-</command:syntaxItem>
-<command:syntaxItem><maml:name>Find-VSCodeExtension</maml:name>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>FullName</maml:name>
-<maml:Description><maml:para>Full Name of extension including Publisher's Name. PublisherName.ExtensionName
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Category</maml:name>
+<maml:Description><maml:para>Filter Extensions by Categories. Valid categoies are 'Languages', 'Snippets', 'Linters', 'Debuggers', 'Other', 'Themes' and 'Productivity'
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
@@ -60,18 +69,28 @@
 <maml:uri /></dev:type>
 <dev:defaultValue></dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
-<maml:Description><maml:para>Allows the use of WildCards
+<command:parameter required="false" variableLength="true" globbing="true" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>PublisherName</maml:name>
+<maml:Description><maml:para>Filter Extensions by Publisher Name. Accepts WildCards.
 </maml:para>
 </maml:Description>
-<dev:type><maml:name>SwitchParameter</maml:name>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
 <maml:uri /></dev:type>
-<dev:defaultValue>False</dev:defaultValue>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="true" pipelineInput="False" position="named" aliases="none"><maml:name>Tag</maml:name>
+<maml:Description><maml:para>Filter Extensions by Tag names. Accepts WildCards.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
 </command:parameter>
 </command:syntaxItem>
 </command:syntax>
-<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>DisplayName</maml:name>
-<maml:Description><maml:para>The Extensions Display Name to be Installed.
+<command:parameters><command:parameter required="true" variableLength="true" globbing="true" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>DisplayName</maml:name>
+<maml:Description><maml:para>The Extensions Display Name. Accepts WildCards.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
@@ -79,8 +98,8 @@
 <maml:uri /></dev:type>
 <dev:defaultValue></dev:defaultValue>
 </command:parameter>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>ExtensionName</maml:name>
-<maml:Description><maml:para>The Extensions Name to be Installed
+<command:parameter required="true" variableLength="true" globbing="true" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>ExtensionName</maml:name>
+<maml:Description><maml:para>The Extensions Name. Accepts WildCards.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
@@ -88,8 +107,8 @@
 <maml:uri /></dev:type>
 <dev:defaultValue></dev:defaultValue>
 </command:parameter>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>FullName</maml:name>
-<maml:Description><maml:para>Full Name of extension including Publisher's Name. PublisherName.ExtensionName
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Category</maml:name>
+<maml:Description><maml:para>Filter Extensions by Categories. Valid categoies are 'Languages', 'Snippets', 'Linters', 'Debuggers', 'Other', 'Themes' and 'Productivity'
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
@@ -97,14 +116,23 @@
 <maml:uri /></dev:type>
 <dev:defaultValue></dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
-<maml:Description><maml:para>Allows the use of WildCards
+<command:parameter required="false" variableLength="true" globbing="true" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>PublisherName</maml:name>
+<maml:Description><maml:para>Filter Extensions by Publisher Name. Accepts WildCards.
 </maml:para>
 </maml:Description>
-<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
-<dev:type><maml:name>SwitchParameter</maml:name>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
 <maml:uri /></dev:type>
-<dev:defaultValue>False</dev:defaultValue>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="true" pipelineInput="False" position="named" aliases="none"><maml:name>Tag</maml:name>
+<maml:Description><maml:para>Filter Extensions by Tag names. Accepts WildCards.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
 </command:parameter>
 </command:parameters>
 <command:inputTypes><command:inputType><dev:type><maml:name>System.String[]</maml:name>
@@ -126,26 +154,180 @@
 </maml:alert>
 </maml:alertSet>
 <command:examples><command:example><maml:title>Example 1</maml:title>
-<dev:code>PS C:\&gt; Find-VSCodeExtension -DisplayName 'Flatland Monokai Theme'</dev:code>
+<dev:code>PS C:\&gt; Find-VSCodeExtension -DisplayName 'Flatland Monokai Theme'
+
+publisher        : @{publisherId=a5c25faf-bf60-4941-81b9-9a852b96c5fb; publisherName=gerane; displayName=gerane; flags=none}
+extensionId      : 6bfab4b0-9e4f-4143-9cc2-2cb359d841d8
+extensionName    : Theme-FlatlandMonokai
+displayName      : Flatland Monokai Theme
+flags            : validated, public
+lastUpdated      : 2016-04-27T13:53:56.12Z
+publishedDate    : 2015-11-18T23:35:34.55Z
+releaseDate      : 2015-11-18T23:35:34.55Z
+shortDescription : Flatland Monokai Theme for VS Code based on the TextMate themes.
+versions         : {@{version=0.0.4; flags=validated; lastUpdated=2016-04-27T13:53:56.933Z; 
+                   assetUri=https://gerane.gallery.vsassets.io/_apis/public/gallery/publisher/gerane/extension/Theme-FlatlandMonokai/0.0.4/assetbyname}, @{version=0.0.3; flags=validated; 
+                   lastUpdated=2015-11-19T01:48:58.507Z; 
+                   assetUri=https://gerane.gallery.vsassets.io/_apis/public/gallery/publisher/gerane/extension/Theme-FlatlandMonokai/0.0.3/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage}, 
+                   @{version=0.0.2; flags=validated; lastUpdated=2015-11-18T23:48:35.303Z; 
+                   assetUri=https://gerane.gallery.vsassets.io/_apis/public/gallery/publisher/gerane/extension/Theme-FlatlandMonokai/0.0.2/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage}, 
+                   @{version=0.0.1; flags=validated; lastUpdated=2015-11-18T23:35:34.55Z; 
+                   assetUri=https://gerane.gallery.vsassets.io/_apis/public/gallery/publisher/gerane/extension/Theme-FlatlandMonokai/0.0.1/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage}}
+categories       : {Themes}
+tags             : {vscode}
+statistics       : {@{statisticName=trendingmonthly; value=187.97107077517933}, @{statisticName=trendingweekly; value=41.78259000546236}, @{statisticName=install; value=8633}, 
+                   @{statisticName=averagerating; value=5}...}
+publisherName    : gerane
+FullName         : gerane.Theme-FlatlandMonokai
+Version          : 0.0.4</dev:code>
 <dev:remarks><maml:para>This example uses the Display Name to find the Extension.
 </maml:para>
 </dev:remarks>
 </command:example>
 <command:example><maml:title>Example 2</maml:title>
-<dev:code>PS C:\&gt; Find-VSCodeExtension -ExtensionName 'Theme-FlatlandMonokai'</dev:code>
+<dev:code>PS C:\&gt; Find-VSCodeExtension -ExtensionName 'Theme-FlatlandMonokai'
+
+publisher        : @{publisherId=a5c25faf-bf60-4941-81b9-9a852b96c5fb; publisherName=gerane; displayName=gerane; flags=none}
+extensionId      : 6bfab4b0-9e4f-4143-9cc2-2cb359d841d8
+extensionName    : Theme-FlatlandMonokai
+displayName      : Flatland Monokai Theme
+flags            : validated, public
+lastUpdated      : 2016-04-27T13:53:56.12Z
+publishedDate    : 2015-11-18T23:35:34.55Z
+releaseDate      : 2015-11-18T23:35:34.55Z
+shortDescription : Flatland Monokai Theme for VS Code based on the TextMate themes.
+versions         : {@{version=0.0.4; flags=validated; lastUpdated=2016-04-27T13:53:56.933Z; 
+                   assetUri=https://gerane.gallery.vsassets.io/_apis/public/gallery/publisher/gerane/extension/Theme-FlatlandMonokai/0.0.4/assetbyname}, @{version=0.0.3; flags=validated; 
+                   lastUpdated=2015-11-19T01:48:58.507Z; 
+                   assetUri=https://gerane.gallery.vsassets.io/_apis/public/gallery/publisher/gerane/extension/Theme-FlatlandMonokai/0.0.3/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage}, 
+                   @{version=0.0.2; flags=validated; lastUpdated=2015-11-18T23:48:35.303Z; 
+                   assetUri=https://gerane.gallery.vsassets.io/_apis/public/gallery/publisher/gerane/extension/Theme-FlatlandMonokai/0.0.2/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage}, 
+                   @{version=0.0.1; flags=validated; lastUpdated=2015-11-18T23:35:34.55Z; 
+                   assetUri=https://gerane.gallery.vsassets.io/_apis/public/gallery/publisher/gerane/extension/Theme-FlatlandMonokai/0.0.1/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage}}
+categories       : {Themes}
+tags             : {vscode}
+statistics       : {@{statisticName=trendingmonthly; value=187.97107077517933}, @{statisticName=trendingweekly; value=41.78259000546236}, @{statisticName=install; value=8633}, 
+                   @{statisticName=averagerating; value=5}...}
+publisherName    : gerane
+FullName         : gerane.Theme-FlatlandMonokai
+Version          : 0.0.4</dev:code>
 <dev:remarks><maml:para>This example uses the Extension Name to find the Extension.
 </maml:para>
 </dev:remarks>
 </command:example>
 <command:example><maml:title>Example 3</maml:title>
-<dev:code>PS C:\&gt; Find-VSCodeExtension -FullName 'gerane.Theme-FlatlandMonokai'</dev:code>
-<dev:remarks><maml:para>This example uses the Full Name to find the Extension. The Full Name is the Publisher Name and Extension Name combined with a dot.
+<dev:code>PS C:\&gt; Find-VSCodeExtension -ExtensionName 'Theme-FlatlandMonokai' -PublisherName 'gerane'
+
+publisher        : @{publisherId=a5c25faf-bf60-4941-81b9-9a852b96c5fb; publisherName=gerane; displayName=gerane; flags=none}
+extensionId      : 6bfab4b0-9e4f-4143-9cc2-2cb359d841d8
+extensionName    : Theme-FlatlandMonokai
+displayName      : Flatland Monokai Theme
+flags            : validated, public
+lastUpdated      : 2016-04-27T13:53:56.12Z
+publishedDate    : 2015-11-18T23:35:34.55Z
+releaseDate      : 2015-11-18T23:35:34.55Z
+shortDescription : Flatland Monokai Theme for VS Code based on the TextMate themes.
+versions         : {@{version=0.0.4; flags=validated; lastUpdated=2016-04-27T13:53:56.933Z; 
+                   assetUri=https://gerane.gallery.vsassets.io/_apis/public/gallery/publisher/gerane/extension/Theme-FlatlandMonokai/0.0.4/assetbyname}, @{version=0.0.3; flags=validated; 
+                   lastUpdated=2015-11-19T01:48:58.507Z; 
+                   assetUri=https://gerane.gallery.vsassets.io/_apis/public/gallery/publisher/gerane/extension/Theme-FlatlandMonokai/0.0.3/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage}, 
+                   @{version=0.0.2; flags=validated; lastUpdated=2015-11-18T23:48:35.303Z; 
+                   assetUri=https://gerane.gallery.vsassets.io/_apis/public/gallery/publisher/gerane/extension/Theme-FlatlandMonokai/0.0.2/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage}, 
+                   @{version=0.0.1; flags=validated; lastUpdated=2015-11-18T23:35:34.55Z; 
+                   assetUri=https://gerane.gallery.vsassets.io/_apis/public/gallery/publisher/gerane/extension/Theme-FlatlandMonokai/0.0.1/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage}}
+categories       : {Themes}
+tags             : {vscode}
+statistics       : {@{statisticName=trendingmonthly; value=187.97107077517933}, @{statisticName=trendingweekly; value=41.78259000546236}, @{statisticName=install; value=8633}, 
+                   @{statisticName=averagerating; value=5}...}
+publisherName    : gerane
+FullName         : gerane.Theme-FlatlandMonokai
+Version          : 0.0.4</dev:code>
+<dev:remarks><maml:para>This example uses the Extension Name and Publisher Name to find the Extension.
 </maml:para>
 </dev:remarks>
 </command:example>
 <command:example><maml:title>Example 4</maml:title>
-<dev:code>PS C:\&gt; Find-VSCodeExtension -FullName 'gerane.*' -WildCard</dev:code>
-<dev:remarks><maml:para>This example finds all Extensions by the Publisher gerane since it is using a Wildcard.
+<dev:code>PS C:\&gt; Find-VSCodeExtension -ExtensionName 'pow*' -Category Debuggers
+
+publisher        : @{publisherId=5f5636e7-69ed-4afe-b5d6-8d231fb3d3ee; publisherName=ms-vscode; displayName=Microsoft; flags=verified}
+extensionId      : 40d39ce9-c381-47a0-80c8-a6661f731eab
+extensionName    : PowerShell
+displayName      : PowerShell
+flags            : validated, public
+lastUpdated      : 2016-05-16T23:46:23.047Z
+publishedDate    : 2015-11-18T00:50:38.583Z
+releaseDate      : 2015-11-18T00:50:38.583Z
+shortDescription : Develop PowerShell scripts in Visual Studio Code!
+versions         : {@{version=0.6.1; flags=validated; lastUpdated=2016-05-16T23:46:24.013Z; 
+                   assetUri=https://ms-vscode.gallery.vsassets.io/_apis/public/gallery/publisher/ms-vscode/extension/PowerShell/0.6.1/assetbyname}, @{version=0.6.0; flags=validated; 
+                   lastUpdated=2016-05-12T19:28:21.337Z; 
+                   assetUri=https://ms-vscode.gallery.vsassets.io/_apis/public/gallery/publisher/ms-vscode/extension/PowerShell/0.6.0/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage}, 
+                   @{version=0.5.0; flags=validated; lastUpdated=2016-03-10T22:20:22Z; 
+                   assetUri=https://ms-vscode.gallery.vsassets.io/_apis/public/gallery/publisher/ms-vscode/extension/PowerShell/0.5.0/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage}, 
+                   @{version=0.4.1; flags=validated; lastUpdated=2016-02-17T21:05:41.647Z; 
+                   assetUri=https://ms-vscode.gallery.vsassets.io/_apis/public/gallery/publisher/ms-vscode/extension/PowerShell/0.4.1/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage}...}
+categories       : {Languages, Snippets, Linters, Debuggers}
+tags             : {vscode}
+statistics       : {@{statisticName=trendingmonthly; value=1388.0843742588802}, @{statisticName=trendingweekly; value=301.7879466216739}, @{statisticName=install; value=78201}, 
+                   @{statisticName=averagerating; value=4.0625}...}
+publisherName    : ms-vscode
+FullName         : ms-vscode.PowerShell
+Version          : 0.6.1</dev:code>
+<dev:remarks><maml:para>This example finds Extensions with the category Debuggers that start with pow.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 5</maml:title>
+<dev:code>PS C:\&gt; Find-VSCodeExtension -ExtensionName '*flow*' -Tag Java*
+
+publisher        : @{publisherId=abad690f-9e62-4fc4-a898-a944ea7d94b7; publisherName=flowtype; displayName=flowtype; flags=none}
+extensionId      : b3917e4f-5086-4def-a82b-2ae6b708db16
+extensionName    : flow-for-vscode
+displayName      : Flow Language Support
+flags            : validated, public
+lastUpdated      : 2016-05-31T23:22:35.817Z
+publishedDate    : 2015-11-19T01:30:11.12Z
+releaseDate      : 2015-11-19T01:30:11.12Z
+shortDescription : Flow support for VS Code
+versions         : {@{version=0.0.3; flags=validated; lastUpdated=2016-05-31T23:22:36.703Z; 
+                   assetUri=https://flowtype.gallery.vsassets.io/_apis/public/gallery/publisher/flowtype/extension/flow-for-vscode/0.0.3/assetbyname}, @{version=0.0.2; flags=validated; 
+                   lastUpdated=2015-11-19T01:33:23.26Z; 
+                   assetUri=https://flowtype.gallery.vsassets.io/_apis/public/gallery/publisher/flowtype/extension/flow-for-vscode/0.0.2/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage}, 
+                   @{version=0.0.1; flags=validated; lastUpdated=2015-11-19T01:30:11.12Z; 
+                   assetUri=https://flowtype.gallery.vsassets.io/_apis/public/gallery/publisher/flowtype/extension/flow-for-vscode/0.0.1/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage}}
+categories       : {Languages, Linters}
+tags             : {javascript, snippet}
+statistics       : {@{statisticName=ratingcount; value=1}, @{statisticName=trendingdaily; value=2.4101005608404065}, @{statisticName=trendingmonthly; value=61.090809868259}, 
+                   @{statisticName=trendingweekly; value=11.212206956953196}...}
+publisherName    : flowtype
+FullName         : flowtype.flow-for-vscode
+Version          : 0.0.3
+
+publisher        : @{publisherId=915d04e8-ae93-49ac-8f58-48df3e79a37d; publisherName=rtorr; displayName=rtorr; flags=none}
+extensionId      : 99ea8d0a-4a49-4f65-be06-32a91ea2c3d1
+extensionName    : vscode-flow
+displayName      : vscode-flow
+flags            : validated, public
+lastUpdated      : 2016-06-15T00:03:36.653Z
+publishedDate    : 2016-06-14T00:13:30.917Z
+releaseDate      : 2016-06-14T00:13:30.917Z
+shortDescription : flow support for vscode
+versions         : {@{version=270.1.10; flags=validated; lastUpdated=2016-06-15T00:03:37.43Z; 
+                   assetUri=https://rtorr.gallery.vsassets.io/_apis/public/gallery/publisher/rtorr/extension/vscode-flow/270.1.10/assetbyname}, @{version=270.1.9; flags=validated; 
+                   lastUpdated=2016-06-14T23:54:15.83Z; 
+                   assetUri=https://rtorr.gallery.vsassets.io/_apis/public/gallery/publisher/rtorr/extension/vscode-flow/270.1.9/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage}, 
+                   @{version=270.1.8; flags=validated; lastUpdated=2016-06-14T23:01:18.01Z; 
+                   assetUri=https://rtorr.gallery.vsassets.io/_apis/public/gallery/publisher/rtorr/extension/vscode-flow/270.1.8/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage}, 
+                   @{version=270.1.7; flags=validated; lastUpdated=2016-06-14T22:26:57.53Z; 
+                   assetUri=https://rtorr.gallery.vsassets.io/_apis/public/gallery/publisher/rtorr/extension/vscode-flow/270.1.7/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage}...}
+categories       : {Other}
+tags             : {javascript, snippet}
+statistics       : {@{statisticName=install; value=178}, @{statisticName=trendingdaily; value=4.500000040233135}, @{statisticName=trendingmonthly; value=25.000000223517418}, 
+                   @{statisticName=trendingweekly; value=12.000000107288361}}
+publisherName    : rtorr
+FullName         : rtorr.vscode-flow
+Version          : 270.1.10</dev:code>
+<dev:remarks><maml:para>This example finds Extensions matching the name flow and Tags beginning with Java,
 </maml:para>
 </dev:remarks>
 </command:example>
@@ -277,8 +459,8 @@ ExtensionPath : C:\Users\i2871rbp\.vscode-insiders\extensions\ms-vscode.Theme-To
 </maml:para>
 </maml:description>
 <command:syntax><command:syntaxItem><maml:name>Get-VSCodeExtensionStats</maml:name>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>DisplayName</maml:name>
-<maml:Description><maml:para>The Extensions Display Name to be Installed.
+<command:parameter required="true" variableLength="true" globbing="true" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>DisplayName</maml:name>
+<maml:Description><maml:para>The Extensions Display Name of the Extension. Accepts WildCards.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
@@ -286,18 +468,37 @@ ExtensionPath : C:\Users\i2871rbp\.vscode-insiders\extensions\ms-vscode.Theme-To
 <maml:uri /></dev:type>
 <dev:defaultValue></dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
-<maml:Description><maml:para>Allows the use of WildCards
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Category</maml:name>
+<maml:Description><maml:para>Filter Extensions by Categories. Valid categoies are 'Languages', 'Snippets', 'Linters', 'Debuggers', 'Other', 'Themes' and 'Productivity'
 </maml:para>
 </maml:Description>
-<dev:type><maml:name>SwitchParameter</maml:name>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
 <maml:uri /></dev:type>
-<dev:defaultValue>False</dev:defaultValue>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>PublisherName</maml:name>
+<maml:Description><maml:para>Filter Extensions by Publisher Name. Accepts WildCards.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="true" pipelineInput="False" position="named" aliases="none"><maml:name>Tag</maml:name>
+<maml:Description><maml:para>Filter Extensions by Tag names. Accepts WildCards.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
 </command:parameter>
 </command:syntaxItem>
 <command:syntaxItem><maml:name>Get-VSCodeExtensionStats</maml:name>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>ExtensionName</maml:name>
-<maml:Description><maml:para>The Extensions Name to be Installed
+<command:parameter required="true" variableLength="true" globbing="true" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>ExtensionName</maml:name>
+<maml:Description><maml:para>The Extensions Name of the Extension. Accepts WildCards.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
@@ -305,18 +506,8 @@ ExtensionPath : C:\Users\i2871rbp\.vscode-insiders\extensions\ms-vscode.Theme-To
 <maml:uri /></dev:type>
 <dev:defaultValue></dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
-<maml:Description><maml:para>Allows the use of WildCards
-</maml:para>
-</maml:Description>
-<dev:type><maml:name>SwitchParameter</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue>False</dev:defaultValue>
-</command:parameter>
-</command:syntaxItem>
-<command:syntaxItem><maml:name>Get-VSCodeExtensionStats</maml:name>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>FullName</maml:name>
-<maml:Description><maml:para>Full Name of extension including Publisher's Name. PublisherName.ExtensionName
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Category</maml:name>
+<maml:Description><maml:para>Filter Extensions by Categories. Valid categoies are 'Languages', 'Snippets', 'Linters', 'Debuggers', 'Other', 'Themes' and 'Productivity'
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
@@ -324,18 +515,28 @@ ExtensionPath : C:\Users\i2871rbp\.vscode-insiders\extensions\ms-vscode.Theme-To
 <maml:uri /></dev:type>
 <dev:defaultValue></dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
-<maml:Description><maml:para>Allows the use of WildCards
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>PublisherName</maml:name>
+<maml:Description><maml:para>Filter Extensions by Publisher Name. Accepts WildCards.
 </maml:para>
 </maml:Description>
-<dev:type><maml:name>SwitchParameter</maml:name>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
 <maml:uri /></dev:type>
-<dev:defaultValue>False</dev:defaultValue>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="true" pipelineInput="False" position="named" aliases="none"><maml:name>Tag</maml:name>
+<maml:Description><maml:para>Filter Extensions by Tag names. Accepts WildCards.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
 </command:parameter>
 </command:syntaxItem>
 </command:syntax>
-<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>DisplayName</maml:name>
-<maml:Description><maml:para>The Extensions Display Name to be Installed.
+<command:parameters><command:parameter required="true" variableLength="true" globbing="true" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>DisplayName</maml:name>
+<maml:Description><maml:para>The Extensions Display Name of the Extension. Accepts WildCards.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
@@ -343,8 +544,8 @@ ExtensionPath : C:\Users\i2871rbp\.vscode-insiders\extensions\ms-vscode.Theme-To
 <maml:uri /></dev:type>
 <dev:defaultValue></dev:defaultValue>
 </command:parameter>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>ExtensionName</maml:name>
-<maml:Description><maml:para>The Extensions Name to be Installed
+<command:parameter required="true" variableLength="true" globbing="true" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>ExtensionName</maml:name>
+<maml:Description><maml:para>The Extensions Name of the Extension. Accepts WildCards.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
@@ -352,8 +553,8 @@ ExtensionPath : C:\Users\i2871rbp\.vscode-insiders\extensions\ms-vscode.Theme-To
 <maml:uri /></dev:type>
 <dev:defaultValue></dev:defaultValue>
 </command:parameter>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>FullName</maml:name>
-<maml:Description><maml:para>Full Name of extension including Publisher's Name. PublisherName.ExtensionName
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Category</maml:name>
+<maml:Description><maml:para>Filter Extensions by Categories. Valid categoies are 'Languages', 'Snippets', 'Linters', 'Debuggers', 'Other', 'Themes' and 'Productivity'
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
@@ -361,14 +562,23 @@ ExtensionPath : C:\Users\i2871rbp\.vscode-insiders\extensions\ms-vscode.Theme-To
 <maml:uri /></dev:type>
 <dev:defaultValue></dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
-<maml:Description><maml:para>Allows the use of WildCards
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>PublisherName</maml:name>
+<maml:Description><maml:para>Filter Extensions by Publisher Name. Accepts WildCards.
 </maml:para>
 </maml:Description>
-<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
-<dev:type><maml:name>SwitchParameter</maml:name>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
 <maml:uri /></dev:type>
-<dev:defaultValue>False</dev:defaultValue>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="true" pipelineInput="False" position="named" aliases="none"><maml:name>Tag</maml:name>
+<maml:Description><maml:para>Filter Extensions by Tag names. Accepts WildCards.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
 </command:parameter>
 </command:parameters>
 <command:inputTypes><command:inputType><dev:type><maml:name>System.String[]</maml:name>
@@ -420,7 +630,7 @@ Trending Monthly : 183.44302870630867</dev:code>
 </dev:remarks>
 </command:example>
 <command:example><maml:title>Example 3</maml:title>
-<dev:code>PS C:\&gt; Get-VSCodeExtensionStats -FullName 'gerane.Theme-FlatlandMonokai'
+<dev:code>PS C:\&gt; Get-VSCodeExtensionStats -ExtensionName 'Theme-FlatlandMonokai' -PublisherName 'gerane'
 
 Extension Name   : Flatland Monokai Theme
 Publisher Name   : gerane
@@ -430,12 +640,12 @@ Rating Count     : 4
 Trending Daily   : 7.48747055944117
 Trending Weekly  : 37.234988728031766
 Trending Monthly : 183.44302870630867</dev:code>
-<dev:remarks><maml:para>Gets stats for the Flatland Monokai Theme using Full Name
+<dev:remarks><maml:para>Gets stats for the Flatland Monokai Theme using Extension Name and Publisher Name
 </maml:para>
 </dev:remarks>
 </command:example>
 <command:example><maml:title>Example 4</maml:title>
-<dev:code>PS C:\&gt; Get-VSCodeExtensionStats -ExtensionName '*Flatland*' -WildCard
+<dev:code>PS C:\&gt; Get-VSCodeExtensionStats -ExtensionName '*Flatland*'
 
 Extension Name   : Flatland Monokai Theme
 Publisher Name   : gerane
@@ -463,7 +673,7 @@ Rating Count     :
 Trending Daily   : 2.1339517893452813
 Trending Weekly  : 3.912244947133016
 Trending Monthly : 8.891465788938671</dev:code>
-<dev:remarks><maml:para>Gets stats for all Extension Names containing Flatland using the WildCard switch.
+<dev:remarks><maml:para>Gets stats for all Extension Names containing Flatland using WildCards.
 </maml:para>
 </dev:remarks>
 </command:example>
@@ -482,8 +692,8 @@ Trending Monthly : 8.891465788938671</dev:code>
 </maml:para>
 </maml:description>
 <command:syntax><command:syntaxItem><maml:name>Get-VSCodePublisherStats</maml:name>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none"><maml:name>PublisherName</maml:name>
-<maml:Description><maml:para>The name of the Publisher
+<command:parameter required="true" variableLength="true" globbing="true" pipelineInput="False" position="0" aliases="none"><maml:name>PublisherName</maml:name>
+<maml:Description><maml:para>The Publisher Name. Accepts WildCards.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
@@ -493,8 +703,8 @@ Trending Monthly : 8.891465788938671</dev:code>
 </command:parameter>
 </command:syntaxItem>
 </command:syntax>
-<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none"><maml:name>PublisherName</maml:name>
-<maml:Description><maml:para>The name of the Publisher
+<command:parameters><command:parameter required="true" variableLength="true" globbing="true" pipelineInput="False" position="0" aliases="none"><maml:name>PublisherName</maml:name>
+<maml:Description><maml:para>The Publisher Name. Accepts WildCards.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
@@ -557,8 +767,8 @@ Most Downloaded Count     : 8548</dev:code>
 <maml:uri /></dev:type>
 <dev:defaultValue>False</dev:defaultValue>
 </command:parameter>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>DisplayName</maml:name>
-<maml:Description><maml:para>The Extensions Display Name to be Installed.
+<command:parameter required="true" variableLength="true" globbing="true" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>DisplayName</maml:name>
+<maml:Description><maml:para>The Extensions Display Name to be Installed. Accepts WildCards.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
@@ -582,13 +792,32 @@ Most Downloaded Count     : 8548</dev:code>
 <maml:uri /></dev:type>
 <dev:defaultValue>False</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
-<maml:Description><maml:para>Allows the use of WildCards
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Category</maml:name>
+<maml:Description><maml:para>Filter Extensions by Categories. Valid categoies are 'Languages', 'Snippets', 'Linters', 'Debuggers', 'Other', 'Themes' and 'Productivity'
 </maml:para>
 </maml:Description>
-<dev:type><maml:name>SwitchParameter</maml:name>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
 <maml:uri /></dev:type>
-<dev:defaultValue>False</dev:defaultValue>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="true" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>PublisherName</maml:name>
+<maml:Description><maml:para>Filter Extensions by Publisher Name. Accepts WildCards.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="true" pipelineInput="False" position="named" aliases="none"><maml:name>Tag</maml:name>
+<maml:Description><maml:para>Filter Extensions by Tag names. Accepts WildCards.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
 </command:parameter>
 </command:syntaxItem>
 <command:syntaxItem><maml:name>Install-VSCodeExtension</maml:name>
@@ -600,8 +829,8 @@ Most Downloaded Count     : 8548</dev:code>
 <maml:uri /></dev:type>
 <dev:defaultValue>False</dev:defaultValue>
 </command:parameter>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>ExtensionName</maml:name>
-<maml:Description><maml:para>The Extensions Name to be Installed
+<command:parameter required="true" variableLength="true" globbing="true" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>ExtensionName</maml:name>
+<maml:Description><maml:para>The Extensions Name to be Installed. Accepts WildCards.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
@@ -625,26 +854,8 @@ Most Downloaded Count     : 8548</dev:code>
 <maml:uri /></dev:type>
 <dev:defaultValue>False</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
-<maml:Description><maml:para>Allows the use of WildCards
-</maml:para>
-</maml:Description>
-<dev:type><maml:name>SwitchParameter</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue>False</dev:defaultValue>
-</command:parameter>
-</command:syntaxItem>
-<command:syntaxItem><maml:name>Install-VSCodeExtension</maml:name>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
-<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet. Prompts you for confirmation before running the cmdlet.
-</maml:para>
-</maml:Description>
-<dev:type><maml:name>SwitchParameter</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue>False</dev:defaultValue>
-</command:parameter>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>FullName</maml:name>
-<maml:Description><maml:para>Full Name of extension including Publisher's Name. PublisherName.ExtensionName
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Category</maml:name>
+<maml:Description><maml:para>Filter Extensions by Categories. Valid categoies are 'Languages', 'Snippets', 'Linters', 'Debuggers', 'Other', 'Themes' and 'Productivity'
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
@@ -652,29 +863,23 @@ Most Downloaded Count     : 8548</dev:code>
 <maml:uri /></dev:type>
 <dev:defaultValue></dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Insiders</maml:name>
-<maml:Description><maml:para>Switch to Target Insiders version of Code
+<command:parameter required="false" variableLength="true" globbing="true" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>PublisherName</maml:name>
+<maml:Description><maml:para>Filter Extensions by Publisher Name. Accepts WildCards.
 </maml:para>
 </maml:Description>
-<dev:type><maml:name>SwitchParameter</maml:name>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
 <maml:uri /></dev:type>
-<dev:defaultValue>False</dev:defaultValue>
+<dev:defaultValue></dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
-<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+<command:parameter required="false" variableLength="true" globbing="true" pipelineInput="False" position="named" aliases="none"><maml:name>Tag</maml:name>
+<maml:Description><maml:para>Filter Extensions by Tag names. Accepts WildCards.
 </maml:para>
 </maml:Description>
-<dev:type><maml:name>SwitchParameter</maml:name>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
 <maml:uri /></dev:type>
-<dev:defaultValue>False</dev:defaultValue>
-</command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
-<maml:Description><maml:para>Allows the use of WildCards
-</maml:para>
-</maml:Description>
-<dev:type><maml:name>SwitchParameter</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue>False</dev:defaultValue>
+<dev:defaultValue></dev:defaultValue>
 </command:parameter>
 </command:syntaxItem>
 </command:syntax>
@@ -687,8 +892,8 @@ Most Downloaded Count     : 8548</dev:code>
 <maml:uri /></dev:type>
 <dev:defaultValue>False</dev:defaultValue>
 </command:parameter>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>DisplayName</maml:name>
-<maml:Description><maml:para>The Extensions Display Name to be Installed.
+<command:parameter required="true" variableLength="true" globbing="true" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>DisplayName</maml:name>
+<maml:Description><maml:para>The Extensions Display Name to be Installed. Accepts WildCards.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
@@ -696,17 +901,8 @@ Most Downloaded Count     : 8548</dev:code>
 <maml:uri /></dev:type>
 <dev:defaultValue></dev:defaultValue>
 </command:parameter>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>ExtensionName</maml:name>
-<maml:Description><maml:para>The Extensions Name to be Installed
-</maml:para>
-</maml:Description>
-<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
-<dev:type><maml:name>String[]</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue></dev:defaultValue>
-</command:parameter>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>FullName</maml:name>
-<maml:Description><maml:para>Full Name of extension including Publisher's Name. PublisherName.ExtensionName
+<command:parameter required="true" variableLength="true" globbing="true" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>ExtensionName</maml:name>
+<maml:Description><maml:para>The Extensions Name to be Installed. Accepts WildCards.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
@@ -732,14 +928,32 @@ Most Downloaded Count     : 8548</dev:code>
 <maml:uri /></dev:type>
 <dev:defaultValue>False</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
-<maml:Description><maml:para>Allows the use of WildCards
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Category</maml:name>
+<maml:Description><maml:para>Filter Extensions by Categories. Valid categoies are 'Languages', 'Snippets', 'Linters', 'Debuggers', 'Other', 'Themes' and 'Productivity'
 </maml:para>
 </maml:Description>
-<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
-<dev:type><maml:name>SwitchParameter</maml:name>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
 <maml:uri /></dev:type>
-<dev:defaultValue>False</dev:defaultValue>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="true" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>PublisherName</maml:name>
+<maml:Description><maml:para>Filter Extensions by Publisher Name. Accepts WildCards.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="true" pipelineInput="False" position="named" aliases="none"><maml:name>Tag</maml:name>
+<maml:Description><maml:para>Filter Extensions by Tag names. Accepts WildCards.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue></dev:defaultValue>
 </command:parameter>
 </command:parameters>
 <command:inputTypes><command:inputType><dev:type><maml:name>System.String[]</maml:name>
@@ -773,14 +987,20 @@ Most Downloaded Count     : 8548</dev:code>
 </dev:remarks>
 </command:example>
 <command:example><maml:title>Example 3</maml:title>
-<dev:code>PS C:\&gt; Install-VSCodeExtension -FullName 'gerane.Theme-FlatlandMonokai'</dev:code>
-<dev:remarks><maml:para>This example uses the Full Name to Install the Extension. The Full Name is the Publisher Name and Extension Name combined with a dot.
+<dev:code>PS C:\&gt; Install-VSCodeExtension -ExtensionName 'Theme-FlatlandMonokai' -PublisherName 'gerane'</dev:code>
+<dev:remarks><maml:para>This example uses the Extension Name and Publisher Name to Install the Extension.
 </maml:para>
 </dev:remarks>
 </command:example>
 <command:example><maml:title>Example 4</maml:title>
-<dev:code>PS C:\&gt; Install-VSCodeExtension -FullName 'gerane.*' -WildCard</dev:code>
-<dev:remarks><maml:para>This example Installs all Extensions by the Publisher gerane since it is using a Wildcard.
+<dev:code>PS C:\&gt; Install-VSCodeExtension -ExtensionName 'pow*' -Category Debuggers</dev:code>
+<dev:remarks><maml:para>This example Installs the PowerShell Extension by searching for Extensions with category Debuggers and start with pow.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 5</maml:title>
+<dev:code>PS C:\&gt; Find-VSCodeExtension -ExtensionName '*flow*' -Tag Java*</dev:code>
+<dev:remarks><maml:para>This example Installs the flow-for-vscode and vscode-flow Extensions by searching for Extensions with tags starting with Java and names containing flow.
 </maml:para>
 </dev:remarks>
 </command:example>
@@ -807,8 +1027,8 @@ Most Downloaded Count     : 8548</dev:code>
 <maml:uri /></dev:type>
 <dev:defaultValue>False</dev:defaultValue>
 </command:parameter>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>DisplayName</maml:name>
-<maml:Description><maml:para>The Extensions Display Name to be Installed.
+<command:parameter required="true" variableLength="true" globbing="true" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>DisplayName</maml:name>
+<maml:Description><maml:para>The Extensions Display Name. Accepts WildCards.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
@@ -832,13 +1052,14 @@ Most Downloaded Count     : 8548</dev:code>
 <maml:uri /></dev:type>
 <dev:defaultValue>False</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
-<maml:Description><maml:para>Allows the use of WildCards
+<command:parameter required="false" variableLength="true" globbing="true" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>PublisherName</maml:name>
+<maml:Description><maml:para>Filter Extensions by Publisher Name. Accepts WildCards.
 </maml:para>
 </maml:Description>
-<dev:type><maml:name>SwitchParameter</maml:name>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
 <maml:uri /></dev:type>
-<dev:defaultValue>False</dev:defaultValue>
+<dev:defaultValue></dev:defaultValue>
 </command:parameter>
 </command:syntaxItem>
 <command:syntaxItem><maml:name>Uninstall-VSCodeExtension</maml:name>
@@ -850,8 +1071,8 @@ Most Downloaded Count     : 8548</dev:code>
 <maml:uri /></dev:type>
 <dev:defaultValue>False</dev:defaultValue>
 </command:parameter>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>ExtensionName</maml:name>
-<maml:Description><maml:para>The Extensions Name to be Installed
+<command:parameter required="true" variableLength="true" globbing="true" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>ExtensionName</maml:name>
+<maml:Description><maml:para>The Extensions Name. Accepts WildCards.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
@@ -875,56 +1096,14 @@ Most Downloaded Count     : 8548</dev:code>
 <maml:uri /></dev:type>
 <dev:defaultValue>False</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
-<maml:Description><maml:para>Allows the use of WildCards
-</maml:para>
-</maml:Description>
-<dev:type><maml:name>SwitchParameter</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue>False</dev:defaultValue>
-</command:parameter>
-</command:syntaxItem>
-<command:syntaxItem><maml:name>Uninstall-VSCodeExtension</maml:name>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
-<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet. Prompts you for confirmation before running the cmdlet.
-</maml:para>
-</maml:Description>
-<dev:type><maml:name>SwitchParameter</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue>False</dev:defaultValue>
-</command:parameter>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>FullName</maml:name>
-<maml:Description><maml:para>Full Name of extension including Publisher's Name. PublisherName.ExtensionName
+<command:parameter required="false" variableLength="true" globbing="true" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>PublisherName</maml:name>
+<maml:Description><maml:para>Filter Extensions by Publisher Name. Accepts WildCards.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
 <dev:type><maml:name>String[]</maml:name>
 <maml:uri /></dev:type>
 <dev:defaultValue></dev:defaultValue>
-</command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Insiders</maml:name>
-<maml:Description><maml:para>Switch to Target Insiders version of Code
-</maml:para>
-</maml:Description>
-<dev:type><maml:name>SwitchParameter</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue>False</dev:defaultValue>
-</command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
-<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
-</maml:para>
-</maml:Description>
-<dev:type><maml:name>SwitchParameter</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue>False</dev:defaultValue>
-</command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
-<maml:Description><maml:para>Allows the use of WildCards
-</maml:para>
-</maml:Description>
-<dev:type><maml:name>SwitchParameter</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue>False</dev:defaultValue>
 </command:parameter>
 </command:syntaxItem>
 </command:syntax>
@@ -937,8 +1116,8 @@ Most Downloaded Count     : 8548</dev:code>
 <maml:uri /></dev:type>
 <dev:defaultValue>False</dev:defaultValue>
 </command:parameter>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>DisplayName</maml:name>
-<maml:Description><maml:para>The Extensions Display Name to be Installed.
+<command:parameter required="true" variableLength="true" globbing="true" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>DisplayName</maml:name>
+<maml:Description><maml:para>The Extensions Display Name. Accepts WildCards.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
@@ -946,17 +1125,8 @@ Most Downloaded Count     : 8548</dev:code>
 <maml:uri /></dev:type>
 <dev:defaultValue></dev:defaultValue>
 </command:parameter>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>ExtensionName</maml:name>
-<maml:Description><maml:para>The Extensions Name to be Installed
-</maml:para>
-</maml:Description>
-<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
-<dev:type><maml:name>String[]</maml:name>
-<maml:uri /></dev:type>
-<dev:defaultValue></dev:defaultValue>
-</command:parameter>
-<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>FullName</maml:name>
-<maml:Description><maml:para>Full Name of extension including Publisher's Name. PublisherName.ExtensionName
+<command:parameter required="true" variableLength="true" globbing="true" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>ExtensionName</maml:name>
+<maml:Description><maml:para>The Extensions Name. Accepts WildCards.
 </maml:para>
 </maml:Description>
 <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
@@ -982,14 +1152,14 @@ Most Downloaded Count     : 8548</dev:code>
 <maml:uri /></dev:type>
 <dev:defaultValue>False</dev:defaultValue>
 </command:parameter>
-<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>WildCard</maml:name>
-<maml:Description><maml:para>Allows the use of WildCards
+<command:parameter required="false" variableLength="true" globbing="true" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>PublisherName</maml:name>
+<maml:Description><maml:para>Filter Extensions by Publisher Name. Accepts WildCards.
 </maml:para>
 </maml:Description>
-<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
-<dev:type><maml:name>SwitchParameter</maml:name>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
 <maml:uri /></dev:type>
-<dev:defaultValue>False</dev:defaultValue>
+<dev:defaultValue></dev:defaultValue>
 </command:parameter>
 </command:parameters>
 <command:inputTypes><command:inputType><dev:type><maml:name>System.String[]</maml:name>
@@ -1023,14 +1193,14 @@ Most Downloaded Count     : 8548</dev:code>
 </dev:remarks>
 </command:example>
 <command:example><maml:title>Example 3</maml:title>
-<dev:code>PS C:\&gt; Uninstall-VSCodeExtension -FullName 'gerane.Theme-FlatlandMonokai'</dev:code>
-<dev:remarks><maml:para>This example uses the Full Name to Uninstall the Extension. The Full Name is the Publisher Name and Extension Name combined with a dot.
+<dev:code>PS C:\&gt; Uninstall-VSCodeExtension -ExtensionName 'Theme-FlatlandMonokai' -PublisherName 'gerane'</dev:code>
+<dev:remarks><maml:para>This example uses the Extension Name and Publisher Name to Uninstall the Extension.
 </maml:para>
 </dev:remarks>
 </command:example>
 <command:example><maml:title>Example 4</maml:title>
-<dev:code>PS C:\&gt; Uninstall-VSCodeExtension -FullName 'gerane.*' -WildCard</dev:code>
-<dev:remarks><maml:para>This example Uninstalls all Extensions by the Publisher gerane since it is using a Wildcard.
+<dev:code>PS C:\&gt; Uninstall-VSCodeExtension -ExtensionName '*' -PublisherName 'gerane'</dev:code>
+<dev:remarks><maml:para>This example Uninstalls all Extensions by the Publisher gerane
 </maml:para>
 </dev:remarks>
 </command:example>

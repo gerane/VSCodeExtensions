@@ -1,3 +1,4 @@
+# .ExternalHelp VSCodeExtensions-Help.xml
 function Get-VSCodeExtension
 {
     [CmdletBinding()]
@@ -13,7 +14,7 @@ function Get-VSCodeExtension
     Process
     {   
         #TODO: Make this searchable by Packages     
-        $ExtensionPath = Get-VSCodeExtensionFolder $Insiders
+        $ExtensionPath = Get-VSCodeExtensionFolder -Insiders:$Insiders
         
         Write-Debug -Message "Using Extension Path: $($ExtensionPath)"
 
@@ -28,10 +29,12 @@ function Get-VSCodeExtension
                     if ($PackageJson)
                     {
                         $Extension = [PSCustomObject]@{
-                            'FullName'      = "$($PackageJson.Publisher).$($PackageJson.Name)"
+                            'FullName'      = "$($PackageJson.Publisher).$($PackageJson.Name)"                            
                             'ExtensionName' = $PackageJson.Name
                             'DisplayName'   = $PackageJson.DisplayName
                             'Version'       = $PackageJson.Version
+                            'PublisherName' = $PackageJson.Publisher
+                            'Homepage'      = $PackageJson.Homepage
                             'ExtensionPath' = $ExtensionDir.FullName
                         }
 

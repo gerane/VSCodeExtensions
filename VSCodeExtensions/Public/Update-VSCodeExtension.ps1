@@ -1,6 +1,7 @@
+# .ExternalHelp VSCodeExtensions-Help.xml
 function Update-VSCodeExtension
 {
-    [CmdletBinding(DefaultParameterSetName="ExtensionName",SupportsShouldProcess=$true)]
+    [CmdletBinding(SupportsShouldProcess=$true)]
     param
     (
         [switch]$Insiders                    
@@ -10,8 +11,8 @@ function Update-VSCodeExtension
     
     Process
     {       
-        $InstalledExtensions = Get-VSCodeExtension $Insiders
-        $GalleryExtensions = Find-VSCodeExtension -ExtensionName '*' -WildCard
+        $InstalledExtensions = Get-VSCodeExtension -Insiders:$Insiders
+        $GalleryExtensions = Find-VSCodeExtension -ExtensionName '*'
         $ExtensionGroups = $InstalledExtensions | Group-Object -Property 'FullName'
 
         foreach ($Group in $ExtensionGroups)
@@ -40,7 +41,7 @@ function Update-VSCodeExtension
                         Try
                         {
                             Write-Verbose -Message "Installing Extension Update $($Extension.FullName)"
-                            Install-VSCodeExtension -FullName $Extension.FullName -Insiders:$Insiders
+                            Install-VSCodeExtension -ExtensionName $Extension.ExtensionName -PublisherName $Extension.PublisherName -Insiders:$Insiders
                         }
                         catch
                         {
