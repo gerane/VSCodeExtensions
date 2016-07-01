@@ -1,35 +1,28 @@
 ---
 external help file: VSCodeExtensions-help.xml
-online version: 
 schema: 2.0.0
+online version: 
 ---
 
 # Uninstall-VSCodeExtension
 ## SYNOPSIS
 Uninstalls VSCode Extensions.
-
 ## SYNTAX
 
 ### ExtensionName (Default)
 ```
-Uninstall-VSCodeExtension -ExtensionName <String[]> [-WildCard] [-Insiders] [-WhatIf] [-Confirm]
+Uninstall-VSCodeExtension -ExtensionName <String[]> [-PublisherName <String[]>] [-Insiders] [-WhatIf]
+ [-Confirm] [<CommonParameters>]
 ```
 
 ### DisplayName
 ```
-Uninstall-VSCodeExtension -DisplayName <String[]> [-WildCard] [-Insiders] [-WhatIf] [-Confirm]
-```
-
-### FullName
-```
-Uninstall-VSCodeExtension -FullName <String[]> [-WildCard] [-Insiders] [-WhatIf] [-Confirm]
+Uninstall-VSCodeExtension -DisplayName <String[]> [-PublisherName <String[]>] [-Insiders] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 Uninstalls Extensions for Stable or Insiders Versions of VSCode using names or Wildcards.
-
-## EXAMPLES
-
 ## EXAMPLES
 
 ### Example 1
@@ -38,28 +31,24 @@ PS C:\> Uninstall-VSCodeExtension -DisplayName 'Flatland Monokai Theme'
 ```
 
 This example uses the Display Name to Uninstall the Extension.
-
 ### Example 2
 ```
 PS C:\> Uninstall-VSCodeExtension -ExtensionName 'Theme-FlatlandMonokai' -Insiders
 ```
 
 This example uses the Extension Name to Uninstall the Extension. It is being uninstalled for the Insiders version of VSCode.
-
 ### Example 3
 ```
-PS C:\> Uninstall-VSCodeExtension -FullName 'gerane.Theme-FlatlandMonokai'
+PS C:\> Uninstall-VSCodeExtension -ExtensionName 'Theme-FlatlandMonokai' -PublisherName 'gerane'
 ```
 
-This example uses the Full Name to Uninstall the Extension. The Full Name is the Publisher Name and Extension Name combined with a dot.
-
+This example uses the Extension Name and Publisher Name to Uninstall the Extension.
 ### Example 4
 ```
-PS C:\> Uninstall-VSCodeExtension -FullName 'gerane.*' -WildCard
+PS C:\> Uninstall-VSCodeExtension -ExtensionName '*' -PublisherName 'gerane'
 ```
 
-This example Uninstalls all Extensions by the Publisher gerane since it is using a Wildcard.
-
+This example Uninstalls all Extensions by the Publisher gerane
 ## PARAMETERS
 
 ### -Confirm
@@ -78,7 +67,7 @@ Accept wildcard characters: False
 ```
 
 ### -DisplayName
-The Extensions Display Name to be Installed.
+The Extensions Display Name. Accepts WildCards.
 
 ```yaml
 Type: String[]
@@ -89,11 +78,11 @@ Required: True
 Position: Named
 Default value: 
 Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -ExtensionName
-The Extensions Name to be Installed
+The Extensions Name. Accepts WildCards.
 
 ```yaml
 Type: String[]
@@ -104,22 +93,7 @@ Required: True
 Position: Named
 Default value: 
 Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -FullName
-Full Name of extension including Publisher's Name. PublisherName.ExtensionName
-
-```yaml
-Type: String[]
-Parameter Sets: FullName
-Aliases: 
-
-Required: True
-Position: Named
-Default value: 
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -Insiders
@@ -152,25 +126,26 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -WildCard
-Allows the use of WildCards
+### -PublisherName
+Filter Extensions by Publisher Name. Accepts WildCards.
 
 ```yaml
-Type: SwitchParameter
+Type: String[]
 Parameter Sets: (All)
 Aliases: 
 
 Required: False
 Position: Named
 Default value: 
-Accept pipeline input: False
-Accept wildcard characters: False
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: True
 ```
 
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 ## INPUTS
 
 ### System.String[]
-
 
 ## OUTPUTS
 

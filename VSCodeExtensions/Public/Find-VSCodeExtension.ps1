@@ -1,23 +1,25 @@
+# .ExternalHelp VSCodeExtensions-Help.xml
 function Find-VSCodeExtension
 {
     [CmdletBinding(DefaultParameterSetName="ExtensionName")]
     [OutputType([PSCustomObject])]
     param
     (
-        [Parameter(ParameterSetName="ExtensionName",Mandatory=$true)]
+        [Parameter(ParameterSetName="ExtensionName",Mandatory=$true,ValueFromPipelineByPropertyName=$true,Position=0)]
         [string[]]$ExtensionName,
 
-        [Parameter(ParameterSetName="DisplayName",Mandatory=$true)]
+        [Parameter(ParameterSetName="DisplayName",Mandatory=$true,ValueFromPipelineByPropertyName=$true,Position=0)]
         [string[]]$DisplayName,
 
-        [Parameter(ParameterSetName="FullName",Mandatory=$true)]
-        [ValidatePattern('^[^.]+\.[^.]+$')]
-        [string[]]$FullName,
+        [Parameter(Mandatory=$false,ValueFromPipelineByPropertyName=$true,Position=1)]
+        [string[]]$PublisherName,
 
-        [Parameter(ParameterSetName="ExtensionName",Mandatory=$false)]
-        [Parameter(ParameterSetName="DisplayName",Mandatory=$false)]
-        [Parameter(ParameterSetName="FullName",Mandatory=$false)]
-        [switch]$WildCard
+        [Parameter(Mandatory=$false)]
+        [ValidateSet('Languages','Snippets','Linters','Debuggers','Other','Themes','Productivity')]
+        [string[]]$Category,
+
+        [Parameter(Mandatory=$false)]
+        [string[]]$Tag        
     )
     
     Begin
@@ -26,129 +28,67 @@ function Find-VSCodeExtension
     }
     
     Process
-    {        
+    {
+        $Name = $psCmdlet.MyInvocation.BoundParameters["$($psCmdlet.ParameterSetName)"]
+
+        Write-Verbose -Message "Finding: $($Name)"
+
         switch ($psCmdlet.ParameterSetName)
         {
-            'ExtensionName' {
-                $Name = $ExtensionName
-                Write-Verbose -Message "Using ExtensionName $($Name)"
-
-                if ($WildCard)
-                {
-                    Write-Debug -Message "Wildcard Switch is Present"
-
-                    if ($ExtensionName -match '\*')
-                    {
-                        Write-Debug -Message "Wildcard `"*`" is Present in ExtensionName"
-                        $Extension = $Results.results.extensions | Where-Object { $_.ExtensionName -like $ExtensionName }
-                    }
-                    else 
-                    {
-                        Write-Debug -Message "No WildCards so add them to beginning and end for ExtensionName search"
-                        $Extension = $Results.results.extensions | Where-Object { $_.ExtensionName -like "*$ExtensionName*" }    
-                    }
-                }
-                else 
-                {
-                    Write-Debug -Message "Get Extension without WildCards"
-                    $Extension = $Results.results.extensions | Where-Object { $_.ExtensionName -eq $ExtensionName }
-                }
+            'ExtensionName'
+            {
+                $Extensions = $Results.results.extensions | Where-Object { $_.ExtensionName -like $ExtensionName }
             }
 
-            'DisplayName' {
-                $Name = $DisplayName
-                Write-Verbose -Message "Using DisplayName $($Name)"
-
-                if ($WildCard)
-                {
-                    Write-Debug -Message "Wildcard Switch is Present"
-
-                    if ($DisplayName -match '\*')
-                    {
-                        Write-Debug -Message "Wildcard `"*`" is Present in DisplayName"
-                        $Extension = $Results.results.extensions | Where-Object { $_.DisplayName -like $DisplayName }
-                    }
-                    else 
-                    {
-                        Write-Debug -Message "No WildCards so add them to beginning and end for DisplayName search"
-                        $Extension = $Results.results.extensions | Where-Object { $_.DisplayName -like "*$DisplayName*" }    
-                    }
-                }
-                else 
-                {
-                    Write-Debug -Message "Get Extension without WildCards"
-                    $Extension = $Results.results.extensions | Where-Object { $_.DisplayName -eq $DisplayName }
-                }
+            'DisplayName'
+            {
+                $Extensions = $Results.results.extensions | Where-Object { $_.DisplayName -like $DisplayName }
             }
+        }
 
-            'FullName' {
-                $Name = $FullName
-                Write-Verbose -Message "Using FullName $($Name)"
-                
-                $SplitFullName = $FullName.Split('.')
-                $Publisher = $SplitFullName[0]
-                $ExtensionName = $SplitFullName[1]
-                
-                Write-Debug -Message "Publisher: $($Publisher)"
-                Write-Debug -Message "ExtensionName: $($ExtensionName)"
+        if ($PublisherName)
+        {
+            $PubExts = @()
+            foreach ($Item in $PublisherName)
+            {
+                 $PubExts += $Extensions | Where-Object { $_.Publisher.PublisherName -like $item }
+            }
+            $Extensions = $PubExts | Sort-Object -Property ExtensionName -Unique
+        }
 
-                if ($WildCard)
-                {
-                    Write-Debug -Message "Wildcard Switch is Present"                    
-                    if ($FullName -match '\*')
-                    {
-                        Write-Debug -Message "Wildcard `"*`" is Present in FullName"
-                        if ($Publisher -match '\*')
-                        {
-                            Write-Debug -Message "Wildcard `"*`" is Present in Publisher"
-                            $PublisherExts = $Results.results.extensions | Where-Object { $_.Publisher.PublisherName -like $Publisher }
-                        }
-                        else
-                        {
-                            Write-Debug -Message "No WildCards so add them to beginning and end for Publisher search"
-                            $PublisherExts = $Results.results.extensions | Where-Object { $_.Publisher.PublisherName -eq $Publisher }
-                        }
+        if ($Category)
+        {
+            $CatExts = @()
+            foreach ($Item in $Category)
+            {
+                 $CatExts += $Extensions | Where-Object { $_.categories -contains $item }
+            }
+            $Extensions = $CatExts | Sort-Object -Property ExtensionName -Unique            
+        }
 
-                        if ($ExtensionName -match '\*')
-                        {
-                            Write-Debug -Message "Wildcard `"*`" is Present in ExtensionName"
-                            $Extension = $PublisherExts | Where-Object { $_.ExtensionName -like $ExtensionName }
-                        }
-                        else
-                        {
-                            Write-Debug -Message "No WildCards so add them to beginning and end for ExtensionName search"
-                            $Extension = $PublisherExts | Where-Object { $_.ExtensionName -like "*$ExtensionName*" }
-                        }                        
-                    }
-                    else 
-                    {
-                        Write-Debug -Message "No WildCards so add them to beginning and end for search"                        
-                        $PublisherExts = $Results.results.extensions | Where-Object { $_.Publisher.PublisherName -like "*$Publisher" }
-                        $Extension = $PublisherExts | Where-Object { $_.ExtensionName -like "$ExtensionName*" }                            
-                    }
-                }
-                else 
-                {
-                    Write-Debug -Message "Get Extension without WildCards"                    
-                    $PublisherExts = $Results.results.extensions | Where-Object { $_.Publisher.PublisherName -eq $Publisher }
-                    $Extension = $PublisherExts | Where-Object { $_.ExtensionName -eq $ExtensionName }
-                }
-            }            
+        if ($Tag)
+        {
+            $TagExts = @()
+            foreach ($Item in $Tag)
+            {
+                 $TagExts += $Extensions | Where-Object { $_.tags -like $item }
+            }
+            $Extensions = $TagExts | Sort-Object -Property ExtensionName -Unique 
         }
        
-        if ($Extension)
+        if ($Extensions)
         {
-            foreach ($Ext in $Extension)            
+            foreach ($Extension in $Extensions)            
             {
-                $Ext | Add-Member -MemberType NoteProperty -Name publisherName -Value $Ext.publisher.publisherName
-                $Ext | Add-Member -MemberType NoteProperty -Name FullName -Value ($Ext.publisher.publisherName + '.' + $Ext.ExtensionName)
-                $Ext | Add-Member -MemberType NoteProperty -Name Version -Value $Ext.Versions[0].version
-                $Ext
+                $Extension | Add-Member -MemberType NoteProperty -Name publisherName -Value $Extension.publisher.publisherName
+                $Extension | Add-Member -MemberType NoteProperty -Name FullName -Value ($Extension.publisher.publisherName + '.' + $Extension.ExtensionName)
+                $Extension | Add-Member -MemberType NoteProperty -Name Version -Value $Extension.Versions[0].version
+                $Extension
             }
         }
         else
         {
-            Write-Warning "Could not find Extension $($Name)"
+            Write-Warning "Could not find Extension like $($Name)"
         }
     }
 }

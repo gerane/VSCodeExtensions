@@ -1,3 +1,4 @@
+# .ExternalHelp VSCodeExtensions-Help.xml
 function Get-VSCodePublisherStats
 {
     [CmdletBinding()]
@@ -18,20 +19,20 @@ function Get-VSCodePublisherStats
         $Installs = $null
         Update-FormatData -AppendPath $PSScriptRoot\..\PublisherStats.format.ps1xml
 
-        $Exts = $Results.results.extensions | where { $_.Publisher.PublisherName -eq $PublisherName }
+        $Extensions = $Results.results.extensions | Where-Object { $_.Publisher.PublisherName -like $PublisherName }
 
-        if ($Exts)
+        if ($Extensions)
         {     
             Write-Verbose -Message "Collecting Publisher Statistics"    
 
-            foreach ($Ext in $Exts)
+            foreach ($Extension in $Extensions)
             {
-                $Count = ($Ext.statistics | Where-Object { $_.statisticName -eq 'Install' }).value
+                $Count = ($Extension.statistics | Where-Object { $_.statisticName -eq 'Install' }).value
                 $Installs = $Installs + $Count                
             }                        
-            $PublisherID = $Exts.Publisher.PublisherID | Select-Object -Unique            
-            $MostDownloads = $Exts.displayName[0]            
-            $MostDownloadsCount = $Exts.statistics | Where-Object { $_.statisticName -eq 'Install' } | Select-Object -ExpandProperty value -First 1
+            $PublisherID = $Extensions.Publisher.PublisherID | Select-Object -Unique            
+            $MostDownloads = $Extensions.displayName[0]            
+            $MostDownloadsCount = $Extensions.statistics | Where-Object { $_.statisticName -eq 'Install' } | Select-Object -ExpandProperty value -First 1
             
             Write-Verbose -Message "PublisherName: $($PublisherName)"
             Write-Verbose -Message "PublisherID: $($PublisherID)"
@@ -43,7 +44,7 @@ function Get-VSCodePublisherStats
                 'PublisherName' = $PublisherName
                 'PublisherID' = $PublisherID
                 'TotalInstalls' = $Installs
-                'ExtensionCount' = $Exts.count
+                'ExtensionCount' = $Extensions.count
                 'MostDownloads' = $MostDownloads
                 'MostDownloadsCount' = $MostDownloadsCount
             }

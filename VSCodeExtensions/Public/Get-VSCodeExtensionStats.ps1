@@ -1,23 +1,25 @@
+# .ExternalHelp VSCodeExtensions-Help.xml
 function Get-VSCodeExtensionStats
 {
     [CmdletBinding(DefaultParameterSetName="ExtensionName")]
     [OutputType([PSCustomObject])]
     param
     (
-        [Parameter(ParameterSetName="ExtensionName",Mandatory=$true)]
+        [Parameter(ParameterSetName="ExtensionName",Mandatory=$true,ValueFromPipelineByPropertyName=$true,Position=0)]
         [string[]]$ExtensionName,
 
-        [Parameter(ParameterSetName="DisplayName",Mandatory=$true)]
+        [Parameter(ParameterSetName="DisplayName",Mandatory=$true,ValueFromPipelineByPropertyName=$true,Position=0)]
         [string[]]$DisplayName,
 
-        [Parameter(ParameterSetName="FullName",Mandatory=$true)]
-        [ValidatePattern('^[^.]+\.[^.]+$')]
-        [string[]]$FullName,
+        [Parameter(Mandatory=$false,ValueFromPipelineByPropertyName=$true,Position=1)]
+        [string[]]$PublisherName,
 
-        [Parameter(ParameterSetName="ExtensionName",Mandatory=$false)]
-        [Parameter(ParameterSetName="DisplayName",Mandatory=$false)]
-        [Parameter(ParameterSetName="FullName",Mandatory=$false)]
-        [switch]$WildCard
+        [Parameter(Mandatory=$false)]
+        [ValidateSet('Languages','Snippets','Linters','Debuggers','Other','Themes','Productivity')]
+        [string[]]$Category,
+
+        [Parameter(Mandatory=$false)]
+        [string[]]$Tag 
     )
     
     Begin {}
