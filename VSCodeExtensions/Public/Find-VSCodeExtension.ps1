@@ -1,12 +1,16 @@
 # .ExternalHelp VSCodeExtensions-Help.xml
 function Find-VSCodeExtension
 {
+<#
+#>
     [CmdletBinding(DefaultParameterSetName="ExtensionName")]
     [OutputType([PSCustomObject])]
     param
     (
         [Parameter(ParameterSetName="ExtensionName",Mandatory=$true,ValueFromPipelineByPropertyName=$true,Position=0)]
-        [string[]]$ExtensionName,
+        [SupportsWildcards()]
+        [PSDefaultValue(Help='*')]
+        [string[]]$ExtensionName = '*',
 
         [Parameter(ParameterSetName="DisplayName",Mandatory=$true,ValueFromPipelineByPropertyName=$true,Position=0)]
         [string[]]$DisplayName,
@@ -19,7 +23,7 @@ function Find-VSCodeExtension
         [string[]]$Category,
 
         [Parameter(Mandatory=$false)]
-        [string[]]$Tag        
+        [string[]]$Tag
     )
     
     Begin
