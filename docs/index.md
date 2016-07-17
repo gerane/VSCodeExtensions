@@ -1,6 +1,6 @@
 ﻿# VSCodeExtensions Docs
 
-VSCodeExtensions Documentation is using a combination of [PlatyPS](https://github.com/PowerShell/platyPS) and [ReadTheDocs](https://readthedocs.org/). This let's you right the command help once and it will create External Help, Github Markdown Help, and Help hosted on ReadTheDocs. 
+VSCodeExtensions Documentation is using a combination of [PlatyPS](https://github.com/PowerShell/platyPS) and [ReadTheDocs](https://readthedocs.org/). This let's you write the command help once and it will create External Help, Github Markdown Help, and Help hosted on ReadTheDocs. 
 
 - Help is written in Markdown in [the docs folder](https://github.com/gerane/VSCodeExtensions/tree/master/docs) following a PlatyPS schema.
 - It then gets exported into an External Help file [VSCodeExtensions-help.xml](https://github.com/gerane/VSCodeExtensions/blob/master/VSCodeExtensions/en-US/VSCodeExtensions-help.xml).
