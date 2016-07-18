@@ -99,7 +99,7 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-        Tags = @('vscode','extensions','Code','Visual Studio','VS','VisualStudio','Visual Studio Code')
+        Tags = @('vscode','extensions','Code','VS','VisualStudio','VisualStudioCode')
 
         # A URL to the license for this module.
         LicenseUri = 'https://github.com/gerane/VSCodeExtensions/blob/master/LICENSE.txt'
