@@ -6,7 +6,9 @@ function Find-VSCodeExtension
     param
     (
         [Parameter(ParameterSetName="ExtensionName",Mandatory=$true,ValueFromPipelineByPropertyName=$true,Position=0)]
-        [string[]]$ExtensionName,
+        [SupportsWildcards()]
+        [PSDefaultValue(Help='*')]
+        [string[]]$ExtensionName = '*',
 
         [Parameter(ParameterSetName="DisplayName",Mandatory=$true,ValueFromPipelineByPropertyName=$true,Position=0)]
         [string[]]$DisplayName,
@@ -19,7 +21,7 @@ function Find-VSCodeExtension
         [string[]]$Category,
 
         [Parameter(Mandatory=$false)]
-        [string[]]$Tag        
+        [string[]]$Tag
     )
     
     Begin
@@ -80,9 +82,11 @@ function Find-VSCodeExtension
         {
             foreach ($Extension in $Extensions)            
             {
+                $Extension | Add-Member -MemberType NoteProperty -Name Installs -Value (($Extension.statistics | Where-Object { $_.statisticName -eq 'Install' }).value)
                 $Extension | Add-Member -MemberType NoteProperty -Name publisherName -Value $Extension.publisher.publisherName
                 $Extension | Add-Member -MemberType NoteProperty -Name FullName -Value ($Extension.publisher.publisherName + '.' + $Extension.ExtensionName)
                 $Extension | Add-Member -MemberType NoteProperty -Name Version -Value $Extension.Versions[0].version
+                $Extension | Add-Member -MemberType NoteProperty -Name assetUri -Value $Extension.versions[0].assetUri
                 $Extension
             }
         }

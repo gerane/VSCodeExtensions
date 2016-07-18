@@ -1,7 +1,7 @@
 ---
 external help file: VSCodeExtensions-help.xml
-schema: 2.0.0
 online version: 
+schema: 2.0.0
 ---
 
 # Update-VSCodeExtension
@@ -10,7 +10,7 @@ Updates VSCode Extensions.
 ## SYNTAX
 
 ```
-Update-VSCodeExtension [-Insiders] [-WhatIf] [-Confirm] [<CommonParameters>]
+Update-VSCodeExtension [-Insiders] [-Passthru] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -19,7 +19,14 @@ Finds outdated Extensions for Stable or Insiders versions of VSCode and Updates 
 
 ### Example 1
 ```
-PS C:\> Update-VSCodeExtension
+PS C:\> Update-VSCodeExtension -Passthru
+
+Name                        Version
+----                        -------
+gerane.Theme-CarbonightBlue 0.0.2  
+gerane.Theme-Zenburn        0.0.3  
+ms-vscode.Theme-PredawnKit  0.1.1  
+ms-vscode.Theme-TomorrowKit 0.1.3
 ```
 
 Updates Extensions for the Stable Version of VSCode.
@@ -68,6 +75,21 @@ Shows what would happen if the cmdlet runs. The cmdlet is not run.
 Type: SwitchParameter
 Parameter Sets: (All)
 Aliases: wi
+
+Required: False
+Position: Named
+Default value: 
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Passthru
+Passes updated extensions as output.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: 
 
 Required: False
 Position: Named

@@ -3,14 +3,20 @@ Function Get-VSCodeVsix
     [CmdletBinding()]
     param
     (
-        [Parameter(Mandatory=$true)]
-        [PSCustomObject]$Extension
+        [Parameter(Mandatory=$true,ValueFromPipelineByPropertyName=$true)]
+        [string[]]$FullName,
+
+        [Parameter(Mandatory=$true,ValueFromPipelineByPropertyName=$true)]
+        [string[]]$Version,
+
+        [Parameter(Mandatory=$true,ValueFromPipelineByPropertyName=$true)]
+        [string[]]$assetUri
     )
 
     Process
     {
-        $VsixUri = $Extension.versions[0].assetUri + "/Microsoft.VisualStudio.Services.VSIXPackage?install=true"
-        $ExtensionFolder = $Extension.Fullname + '-' + $Extension.versions[0].version
+        $VsixUri = "$($assetUri)/Microsoft.VisualStudio.Services.VSIXPackage?install=true"
+        $ExtensionFolder = "$($Fullname)-$($version)"
         Invoke-RestMethod -Method Get -Uri $VsixUri -ErrorVariable CodeError -OutFile "$Env:TEMP\$ExtensionFolder.zip" -ErrorAction SilentlyContinue
                                     
         if ($CodeError)

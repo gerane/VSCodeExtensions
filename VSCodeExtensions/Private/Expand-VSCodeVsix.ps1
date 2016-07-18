@@ -3,15 +3,27 @@ Function Expand-VSCodeVsix
     [CmdletBinding()]
     param
     (
-        [Parameter(Mandatory=$true)]
-        [PSCustomObject]$Extension
+        [Parameter(ParameterSetName="Name",Mandatory=$true,ValueFromPipelineByPropertyName=$true,Position=0)]
+        [string[]]$FullName,
+
+        [Parameter(ParameterSetName="Name",Mandatory=$true,ValueFromPipelineByPropertyName=$true,Position=1)]
+        [string[]]$Version,
+
+        [Parameter(ParameterSetName="Path",Mandatory=$true,ValueFromPipelineByPropertyName=$true,Position=0)]
+        [string]$Source,
+
+        [Parameter(ParameterSetName="Path",Mandatory=$true,ValueFromPipelineByPropertyName=$true,Position=1)]
+        [string]$Destination
     )
 
     Process
     {
-        $ExtensionFolder = $Extension.Fullname + '-' + $Extension.versions[0].version
-        $Source = "$Env:TEMP\$ExtensionFolder.zip"
-        $Destination = "$Env:TEMP\$ExtensionFolder"
+        if (($psCmdlet.ParameterSetName) -eq 'Name')
+        {
+            $ExtensionFolder = "$($Fullname)-$($version)"
+            $Source = "$Env:TEMP\$ExtensionFolder.zip"
+            $Destination = "$Env:TEMP\$ExtensionFolder"
+        }
         
         if (Test-Path -Path $Destination)
         {

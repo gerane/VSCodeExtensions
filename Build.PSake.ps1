@@ -42,8 +42,8 @@ Task Analyze -depends Init {
 
 
 Task Help -depends Analyze {    
-    "$lines`n`n`tSTATUS: Building Module Help"
-    
+    "$lines`n`n`tSTATUS: Building Module Help"        
+
     Try
     {
         Invoke-PSDeploy @Verbose -Tags Help -Force 
@@ -58,7 +58,7 @@ Task Help -depends Analyze {
 Task Test -depends Help {
     "$lines`n`n`tSTATUS: Testing with PowerShell $PSVersion"
            
-    $TestResults = Invoke-Pester -Path $ProjectRoot\Tests -PassThru -PesterOption @{IncludeVSCodeMarker=$true} -OutputFormat NUnitXml -OutputFile "$ProjectRoot\$TestFile" -EnableExit
+    $TestResults = Invoke-Pester -Path $ProjectRoot\Tests -PassThru -OutputFormat NUnitXml -OutputFile "$ProjectRoot\$TestFile" -EnableExit
 
     If($ENV:BHBuildSystem -eq 'AppVeyor') 
     { 
