@@ -15,7 +15,7 @@ Properties {
     $Verbose = @{}
     if ($ENV:BHCommitMessage -match "!verbose")
     {
-        $Verbose = @{Verbose = $True}
+        $Verbose = @{Verbose = $True} 
     }
 }
 
