@@ -2,18 +2,21 @@ Function Install-VSCodeVsix
 {
     [CmdletBinding()]
     param
-    (
-        [Parameter(Mandatory=$true,Position=0)]
-        [PSCustomObject]$Extension,
+    (        
+        [Parameter(Mandatory=$true,ValueFromPipelineByPropertyName=$true,Position=0)]
+        [string[]]$FullName,
 
-        [Parameter(Position=1)]
+        [Parameter(Mandatory=$true,ValueFromPipelineByPropertyName=$true,Position=1)]
+        [string[]]$Version,
+
+        [Parameter(Position=2)]
         [switch]$Insiders
     )
 
     Process
     {
-        $ExtensionFolder = $Extension.Fullname + '-' + $Extension.versions[0].version
-        $Destination = Join-Path -Path (Get-VSCodeExtensionFolder $Insiders) -ChildPath $ExtensionFolder
+        $ExtensionFolder = "$($Fullname)-$($version)"
+        $Destination = Join-Path -Path (Get-VSCodeExtensionFolder -Insiders:$Insiders) -ChildPath $ExtensionFolder
         
         Try
         {

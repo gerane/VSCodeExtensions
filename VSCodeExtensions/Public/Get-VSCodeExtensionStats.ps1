@@ -26,7 +26,7 @@ function Get-VSCodeExtensionStats
     
     Process
     {
-        Update-FormatData -AppendPath $PSScriptRoot\..\ExtensionStats.format.ps1xml
+        Update-FormatData -AppendPath $PSScriptRoot\..\Formats\ExtensionStats.format.ps1xml
 
         Try
         {

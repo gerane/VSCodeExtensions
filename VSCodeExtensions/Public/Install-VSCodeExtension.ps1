@@ -52,13 +52,13 @@ function Install-VSCodeExtension
                         Try
                         {
                             Write-Debug -Message "Downloading the VSIX Package"                                
-                            Get-VSCodeVsix -Extension $Extension
+                            $Extension | Get-VSCodeVsix
 
                             Write-Debug -Message "Expanding the VSIX Archive"
-                            Expand-VSCodeVsix -Extension $Extension 
+                            $Extension | Expand-VSCodeVsix 
 
                             Write-Debug -Message "Installing the VSIX to Extension Directory"
-                            Install-VSCodeVsix -Extension $Extension -Insiders:$Insiders
+                            $Extension | Install-VSCodeVsix -Insiders:$Insiders
 
                             Write-Debug -Message "Gathering Installed Extensions"
                             $InstalledExtensions = Get-VSCodeExtension -Insiders:$Insiders
@@ -76,7 +76,6 @@ function Install-VSCodeExtension
                         {
                             Write-Error "Extension $($Extension.FullName) install failed"
                         }
-                        
                     }                                    
                 }
             }

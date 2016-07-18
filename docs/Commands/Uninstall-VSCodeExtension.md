@@ -1,7 +1,7 @@
 ---
 external help file: VSCodeExtensions-help.xml
-schema: 2.0.0
 online version: 
+schema: 2.0.0
 ---
 
 # Uninstall-VSCodeExtension

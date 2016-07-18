@@ -2,9 +2,12 @@
 function Update-VSCodeExtension
 {
     [CmdletBinding(SupportsShouldProcess=$true)]
+    [OutputType([PSCustomObject])]
     param
     (
-        [switch]$Insiders                    
+        [switch]$Insiders,
+
+        [switch]$Passthru                    
     )
     
     Begin {}
@@ -42,6 +45,14 @@ function Update-VSCodeExtension
                         {
                             Write-Verbose -Message "Installing Extension Update $($Extension.FullName)"
                             Install-VSCodeExtension -ExtensionName $Extension.ExtensionName -PublisherName $Extension.PublisherName -Insiders:$Insiders
+                            
+                            if ($Passthru)
+                            {
+                                [PSCustomObject]@{
+                                    Name    = $Extension.FullName
+                                    Version = $LatestVersion.Version
+                                }
+                            }
                         }
                         catch
                         {

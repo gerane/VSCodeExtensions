@@ -12,7 +12,7 @@
 RootModule = 'VSCodeExtensions.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.0.1'
+ModuleVersion = '0.1.0'
 
 # ID used to uniquely identify this module
 GUID = '887a7425-6dbe-4150-966a-852d069832df'
@@ -60,13 +60,20 @@ Description = 'Module to Manage Visual Studio Code Extensions'
 # TypesToProcess = @()
 
 # Format files (.ps1xml) to be loaded when importing this module
-# FormatsToProcess = @()
+FormatsToProcess = @('Formats\ExtensionStats.format.ps1xml',
+                     'Formats\PublisherStats.format.ps1xml')
 
 # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
 # NestedModules = @()
 
 # Functions to export from this module
-FunctionsToExport = '*'
+FunctionsToExport = @('Find-VSCodeExtension', 
+                      'Get-VSCodeExtension', 
+                      'Get-VSCodeExtensionStats', 
+                      'Get-VSCodePublisherStats', 
+                      'Install-VSCodeExtension', 
+                      'Uninstall-VSCodeExtension', 
+                      'Update-VSCodeExtension')
 
 # Cmdlets to export from this module
 CmdletsToExport = '*'
@@ -92,13 +99,13 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-        # Tags = @()
+        Tags = @('vscode','extensions','Code','Visual Studio','VS','VisualStudio','Visual Studio Code')
 
         # A URL to the license for this module.
-        # LicenseUri = ''
+        LicenseUri = 'https://github.com/gerane/VSCodeExtensions/blob/master/LICENSE.txt'
 
         # A URL to the main website for this project.
-        # ProjectUri = ''
+        ProjectUri = 'https://github.com/gerane/VSCodeExtensions'
 
         # A URL to an icon representing this module.
         # IconUri = ''

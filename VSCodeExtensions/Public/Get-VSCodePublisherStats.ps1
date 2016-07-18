@@ -17,7 +17,7 @@ function Get-VSCodePublisherStats
     Process
     {
         $Installs = $null
-        Update-FormatData -AppendPath $PSScriptRoot\..\PublisherStats.format.ps1xml
+        Update-FormatData -AppendPath $PSScriptRoot\..\Formats\PublisherStats.format.ps1xml
 
         $Extensions = $Results.results.extensions | Where-Object { $_.Publisher.PublisherName -like $PublisherName }
 
