@@ -22,7 +22,7 @@
     }
 
     By PSGalleryModule {
-        FromSource "$BHProjectPath\VSCodeExtensions\"
+        FromSource $ENV:BHProjectName
         To PSGallery
         Tagged PSGallery
         WithOptions @{
