@@ -26,6 +26,34 @@ Task Init {
     
     Get-Item ENV:BH*
     "`n"
+
+    Try
+    {
+        ## Update Module Version
+        Update-Metadata -Path $ENV:BHPSModuleManifest
+        $Version = Get-Metadata -Path $ENV:BHPSModuleManifest -PropertyName ModuleVersion
+
+        # Update Exported Functions
+        Set-ModuleFunctions -FunctionsToExport @(Get-ChildItem "$ProjectRoot\$ProjectName\Public\*.ps1" | Select-Object -ExpandProperty BaseName)
+
+        ## Update ChangeLog
+        $Content = Get-Content "$ProjectRoot\CHANGELOG.md" | Select-Object -Skip 2
+        $CommitMessage = git log --format=%B -n 1
+        $NewContent = @('# VSCodeExtensions Release History','',"## $($Version)", "### $(Get-Date -Format MM/dd/yyy)", @($CommitMessage),@($Content))
+        $NewContent | Out-File -FilePath "$ProjectRoot\CHANGELOG.md" -Force -Encoding ascii
+    
+        # Update Release Notes
+        Update-Metadata -Path $ENV:BHPSModuleManifest -PropertyName ReleaseNotes -Value @(Get-Content -Path "$ProjectRoot\CHANGELOG.md") 
+        
+        # Update Formats
+        Update-Metadata -Path $ENV:BHPSModuleManifest -PropertyName FormatsToProcess -Value @(Get-ChildItem "$ProjectRoot\$ProjectName\Formats\" | Select -ExpandProperty Name | ForEach-Object { "Formats\$_" })
+    
+    }
+    Catch
+    {
+        Throw
+    }
+    
 }
 
 
@@ -76,7 +104,7 @@ Task Test -depends Help {
 
 
 Task Build -depends Test {
-    
+
     if ($ENV:BHBuildSystem -eq 'Unknown')
     {
         "$lines`n`n`tSTATUS: Building Local Module"
