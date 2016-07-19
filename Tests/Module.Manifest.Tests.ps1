@@ -1,5 +1,7 @@
-﻿# Original Manifest Test my Brandon Olin
+﻿# Original Manifest Test ideas by Brandon Olin, Matt McNabb and Francois-Xavier Cat
 # https://github.com/devblackops/watchmen/blob/master/Tests/Manifest.Tests.ps1
+# http://www.lazywinadmin.com/2016/05/using-pester-to-test-your-manifest-file.html
+# https://mattmcnabb.github.io/pester-testing-your-module-manifest
 
 $ModuleName = 'VSCodeExtensions'
 $root = Split-Path -Path $PSScriptRoot -Parent
@@ -9,46 +11,75 @@ $ChangelogPath = Join-Path -Path $root -Child "CHANGELOG.md"
 
 
 Describe 'Module manifest' {
+    Get-Module -Name $ModuleName | remove-module -ErrorAction SilentlyContinue
+
     Context 'Validation' {
 
-        $script:manifest = $null
+        $manifest = $null
+        $Manifest = Import-module -Name $ManifestPath -PassThru
+        $FunctionFiles = Get-ChildItem "$ModulePath\Public\*.ps1" | Select -ExpandProperty BaseName
+        $FunctionNames = $FunctionFiles | foreach {$_ -replace '-', "-$($Manifest.Prefix)"}
+        $ExFunctions = $Manifest.ExportedFunctions.Values.Name
 
         It "has a valid manifest" {
-            {
-                $script:manifest = Test-ModuleManifest -Path $manifestPath -ErrorAction Stop -WarningAction SilentlyContinue
-            } | Should Not Throw
+            $Manifest | Should Not Be $null
         }
 
         It "has a valid name in the manifest" {
-            $script:manifest.Name | Should Be $ModuleName
+            $Manifest.Name | Should Be $ModuleName
         }
 
         It 'has a valid root module' {
-            $script:manifest.RootModule | Should Be "$ModuleName.psm1"
+            $Manifest.RootModule | Should Be "$ModuleName.psm1"
         }
 
         It "has a valid version in the manifest" {
-            $script:manifest.Version -as [Version] | Should Not BeNullOrEmpty
+            $Manifest.Version -as [Version] | Should Not BeNullOrEmpty
         }
     
         It 'has a valid description' {
-            $script:manifest.Description | Should Not BeNullOrEmpty
+            $Manifest.Description | Should Not BeNullOrEmpty
         }
 
         It 'has a valid author' {
-            $script:manifest.Author | Should Not BeNullOrEmpty
+            $Manifest.Author | Should Not BeNullOrEmpty
         }
     
         It 'has a valid guid' {
-            { 
-                [guid]::Parse($script:manifest.Guid) 
-            } | Should Not throw
+            { [guid]::Parse($Manifest.Guid) } | Should Not throw
         }
     
         It 'has a valid copyright' {
-            $script:manifest.CopyRight | Should Not BeNullOrEmpty
+            $Manifest.CopyRight | Should Not BeNullOrEmpty
         }
+
+        It 'has tags for PSGallery' {
+            $Manifest.Tags.count | Should Not BeNullOrEmpty 
+        }
+
+        foreach ($Tag in $Manifest.PrivateData.Values.tags)
+        {
+            It "Tag [$Tag] Should not have spaces" {
+                $Tag | Should Not Match '\s'
+            }
+        }
+
+        It 'Should export functions' {
+            $ExFunctions.count | Should BeGreaterThan 0
+        }
+
+        foreach ($FunctionName in $FunctionNames)
+        {
+            It "Function [$FunctionName] should be exported" {		    		    
+		    	$ExFunctions -contains $FunctionName | Should Be $True
+            }
+	    }
         
+        It 'FunctionToExport should have same count as functions in Public Folder' {
+            $FunctionNames.Count | Should Be $ExFunctions.count
+        }
+
+
         # Only for DSC modules
         # It 'exports DSC resources' {
         #     $dscResources = ($Manifest.psobject.Properties | Where Name -eq 'ExportedDscResources').Value
@@ -68,7 +99,7 @@ Describe 'Module manifest' {
         }
 
         It "changelog and manifest versions are the same" {
-            $script:changelogVersion -as [Version] | Should be ( $script:manifest.Version -as [Version] )
+            $script:changelogVersion -as [Version] | Should be ( $Manifest.Version -as [Version] )
         }
 
         # if (Get-Command git.exe -ErrorAction SilentlyContinue) {
@@ -85,8 +116,8 @@ Describe 'Module manifest' {
         #     }
 
         #     It "all versions are the same" {
-        #         $script:changelogVersion -as [Version] | Should be ( $script:manifest.Version -as [Version] )
-        #         #$script:manifest.Version -as [Version] | Should be ( $script:tagVersion -as [Version] )
+        #         $script:changelogVersion -as [Version] | Should be ( $Manifest.Version -as [Version] )
+        #         #$Manifest.Version -as [Version] | Should be ( $script:tagVersion -as [Version] )
         #     }
         # }
     }
