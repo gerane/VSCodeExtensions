@@ -1,5 +1,12 @@
 # VSCodeExtensions Release History
 
+## 0.1.2
+### 09/29/2016
+Fixed Issue with metadata
+- Added metadata to Extension Package.json files.
+- Code stopped recognizing installed extensions if this metadata was missing. It should now detect they were installed from the marketplace.
+
+
 ## 0.1.1
 ### 07/18/2016
 Few Imporvements.
