@@ -12,7 +12,7 @@
 RootModule = 'VSCodeExtensions.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.1.0'
+ModuleVersion = '0.1.1'
 
 # ID used to uniquely identify this module
 GUID = '887a7425-6dbe-4150-966a-852d069832df'
@@ -104,7 +104,7 @@ PrivateData = @{
         # IconUri = ''
 
         # ReleaseNotes of this module
-        ReleaseNotes = @('# VSCodeExtensions Release History','','## 0.1.1','### 07/18/2016','Fixed issue with Module Manifest and Updated Tests','','','## 0.1.0    ','### 7/17/2016','Imporved the handling of VSIX files.','Commands','- Find-VSCodeExtension','- Get-VSCodeExtension','- Get-VSCodeExtensionStats','- Get-VSCodePublisherStats','- Install-VSCodeExtension','- Uninstall-VSCodeExtension','- Update-VSCodeExtension','','','## 0.0.1','Initial Release')
+        ReleaseNotes = @('# VSCodeExtensions Release History','','## 0.1.1','### 09/29/2016','!deploy to Gallery','','- appveyor: Added Slack notifications for builds','- Psake: Added Manifest auto updates','- FInd-VSCodeExtension: Added Installs and AssetUri properties to return','- Install-VSCodeExtension: Swapped to piping','- Formats: Moved formats to a format folder','- VSIX: moved from Extension object to properties and piping.','- Manifest: Added ReleaseNotes for PSGallery and Formats','- Tests: Added Manifest tests','## 0.1.0    ','### 7/17/2016','Imporved the handling of VSIX files.','Commands','- Find-VSCodeExtension','- Get-VSCodeExtension','- Get-VSCodeExtensionStats','- Get-VSCodePublisherStats','- Install-VSCodeExtension','- Uninstall-VSCodeExtension','- Update-VSCodeExtension','','','## 0.0.1','Initial Release')
 
     } # End of PSData hashtable
 
@@ -117,6 +117,10 @@ PrivateData = @{
 # DefaultCommandPrefix = ''
 
 }
+
+
+
+
 
 
 
