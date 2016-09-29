@@ -60,6 +60,9 @@ function Install-VSCodeExtension
                             Write-Debug -Message "Installing the VSIX to Extension Directory"
                             $Extension | Install-VSCodeVsix -Insiders:$Insiders
 
+                            Write-Debug -Message "Adding Metadata to the package.json"
+                            $Extension | Add-VSCodeMetadata -Insiders:$Insiders
+
                             Write-Debug -Message "Gathering Installed Extensions"
                             $InstalledExtensions = Get-VSCodeExtension -Insiders:$Insiders
                         }                          
