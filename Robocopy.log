@@ -1,0 +1,53 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Thursday, September 29, 2016 2:59:50 PM
+   Source : C:\Github\VSCodeExtensions\VSCodeExtensions\
+     Dest : C:\Users\i2871rbp\Documents\WindowsPowerShell\Modules\VSCodeExtensions\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /PURGE /XO /R:2 /W:30 
+
+------------------------------------------------------------------------------
+
+	  New Dir          3	C:\Github\VSCodeExtensions\VSCodeExtensions\
+	    New File  		    1519	EditorCommands.ps1  0%  100%  
+	    New File  		    4646	VSCodeExtensions.psd1  0%  100%  
+	    New File  		     517	VSCodeExtensions.psm1  0%  100%  
+	  New Dir          1	C:\Github\VSCodeExtensions\VSCodeExtensions\en-US\
+	    New File  		   72259	VSCodeExtensions-help.xml  0%  100%  
+	  New Dir          2	C:\Github\VSCodeExtensions\VSCodeExtensions\Formats\
+	    New File  		    2359	ExtensionStats.format.ps1xml  0%  100%  
+	    New File  		    1948	PublisherStats.format.ps1xml  0%  100%  
+	  New Dir          6	C:\Github\VSCodeExtensions\VSCodeExtensions\Private\
+	    New File  		    1147	Add-VSCodeMetadata.ps1  0%  100%  
+	    New File  		    1346	Expand-VSCodeVsix.ps1  0%  100%  
+	    New File  		     426	Get-VSCodeExtensionFolder.ps1  0%  100%  
+	    New File  		    1001	Get-VSCodeInstallation.ps1  0%  100%  
+	    New File  		    1187	Get-VSCodeVsix.ps1  0%  100%  
+	    New File  		    1080	Install-VSCodeVsix.ps1  0%  100%  
+	  New Dir          7	C:\Github\VSCodeExtensions\VSCodeExtensions\Public\
+	    New File  		    3623	Find-VSCodeExtension.ps1  0%  100%  
+	    New File  		    2255	Get-VSCodeExtension.ps1  0%  100%  
+	    New File  		    2573	Get-VSCodeExtensionStats.ps1  0%  100%  
+	    New File  		    2352	Get-VSCodePublisherStats.ps1  0%  100%  
+	    New File  		    3866	Install-VSCodeExtension.ps1  0%  100%  
+	    New File  		    3065	Uninstall-VSCodeExtension.ps1  0%  100%  
+	    New File  		    2771	Update-VSCodeExtension.ps1  0%  100%  
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         5         5         0         0         0         0
+   Files :        19        19         0         0         0         0
+   Bytes :   107.3 k   107.3 k         0         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :             2390000 Bytes/sec.
+   Speed :             136.756 MegaBytes/min.
+   Ended : Thursday, September 29, 2016 2:59:50 PM
+
